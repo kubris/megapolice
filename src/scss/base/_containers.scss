@@ -1,0 +1,26 @@
+.container {
+	margin: 0 auto;
+	padding: 0 var(--container-padding);
+	max-width: var(--container-width);
+	max-width: 1140px;
+	width: 100%;
+}
+
+.container-fluid {
+	margin: 0 auto;
+	padding: 0 var(--container-padding);
+	max-width: var(--container-width);
+	max-width: 1920px;
+	width: 100%;
+}
+
+.container-right {
+	//overflow-x: hidden;
+	margin-left: auto;
+	margin-left: calc((100vw - var(--container-width)) / 2 + var(--container-padding));
+}
+
+.container-left {
+	// overflow-x: hidden;
+	padding-right: calc((100vw - var(--container-width)) / 2 + var(--container-padding));
+}

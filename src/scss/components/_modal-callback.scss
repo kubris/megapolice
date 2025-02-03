@@ -1,0 +1,177 @@
+@use '../base/mixins';
+
+.callback {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -200%);
+	transition: transform 0.2s ease-in-out;
+
+	max-width: 580px;
+	width: 100%;
+	padding: 60px 60px 40px;
+	background: var(--bg-white);
+	color: var(--txt-dark);
+	
+	@include mixins.mw768 {
+		padding: 40px 20px 30px;
+		max-width: 100%;
+		width: 95%;
+	}
+
+	&-bg {
+		//transform: translateY(-150%);
+		top: 0;
+		left: 0;
+		position: fixed;
+		width: 100vw;
+		height: 100%;
+		z-index: 10;
+		transition: transform 0.5s ease-in-out, opacity 0.2s ease-in-out;
+		background-color: var(--bg-dark);
+
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		opacity: 0;
+		pointer-events: none;
+
+		&.show {
+			//transform: translateY(0);
+			opacity: 1;
+			pointer-events: all;
+
+			& .callback  {
+				transform: translate(-50%, -50%);
+			}
+		}
+	}
+
+	& > .h2 {
+		margin-bottom: 10px;
+		font-size: 36px;
+		font-weight: 600;
+		line-height: 130%;
+		text-transform: uppercase;
+
+		@include mixins.mw768 {font-size: 18px}
+	}
+	& > p {
+		margin-bottom: 15px;
+		font-size: 18px;
+		font-weight: 500;
+		line-height: 140%;
+
+		@include mixins.mw768 {font-size: 14px}
+	}
+
+	label {
+		display: flex;
+		flex-direction: column;
+		& > input {
+			margin-bottom: 15px;
+			padding: 5px 20px;
+			height: 55px;
+			width: 100%;
+			font-size: 18px;
+			transition: box-shadow 0.2s;
+			background-color: var(--bg-white);
+			border: 1px solid var(--bg-dark);
+
+			@include mixins.mw768 {font-size: 14px}
+
+			&:hover {
+				box-shadow: 0 0 6px #aaa;
+			}
+		}
+	}
+
+	textarea {
+		padding: 23px 20px;
+		width: 100%;
+		height: 90px;
+		background-color: var(--bg-white);
+		border: 1px solid var(--bg-dark);
+		resize: none;
+	}
+	label > input,
+	textarea {
+		color: var(--txt-dark);
+	}
+	label > input::placeholder,
+	textarea::placeholder {
+		color: var(--txt-dark);
+	}
+
+	.accept {
+		position: relative;
+		margin: 15px 0 30px;
+		padding-left: 22px;
+		font-size: 14px;
+
+		&::before {
+			content: '';
+			position: absolute;
+			left: 0;
+			top: 5px;
+			display: flex;
+			width: 12px;
+			height: 12px;
+			border-radius: 2px;
+			border: 1px solid var(--bg-dark);
+			transition: box-shadow 0.2s;
+		}
+		&::after {
+			
+			position: absolute;
+			left: 0;
+			top: 5px;
+			display: flex;
+			width: 18px;
+			height: 18px;
+			background: url(../images/svg/check.svg) center no-repeat;
+		}
+		&:hover::before,
+		&:focus::before {
+			box-shadow: 0 0 5px var(--bg-dark);
+		}
+
+		& > a:hover {
+			text-decoration: underline;
+		}
+	}
+
+	input[type=checkbox]:checked + .accept::before {
+		background-color: var(--accent);
+	}
+	input[type=checkbox]:checked + .accept::after {
+		content: '';
+
+	}
+
+	&-close {
+		position: absolute;
+		right: 20px;
+		top: 20px;
+		display: block;
+		width: 32px;
+		height: 32px;
+		background-color: unset;
+		transition: transform 0.2s;
+		cursor: pointer;
+		
+		@include mixins.mw768 {
+			width: 22px;
+			height: 22px;
+		}
+	}
+	&-close:hover {
+		transform: scale(1.2);
+	}
+}
+
+@media (max-height:500px) {
+	.callback {
+		padding: 20px 15px 10px;
+	}
+}

@@ -1,0 +1,28 @@
+.show-more {
+	position: relative;
+	max-height: 350px;
+	-webkit-transition: max-height 0.2s ease-out;
+	transition: max-height 0.2s ease-out;
+	overflow: hidden;
+
+	&::after {
+		content: "";
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		display: block;
+		height: 28px;
+		width: 100%;
+		background: transparent;
+		background: -webkit-gradient(linear, left bottom, left top, color-stop(25%, rgba(255, 255, 255, 0.9)), to(rgba(255, 255, 255, 0.1)));
+		background: linear-gradient(to top, rgba(255, 255, 255, 0.9) 25%, rgba(255, 255, 255, 0.1) 100%);
+	}
+
+	&.open {
+		max-height: 100%;
+
+		&::after {
+			opacity: 0;
+		}
+	}
+}

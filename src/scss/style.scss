@@ -1,0 +1,24 @@
+// base
+@use "./base/mixins";
+@use "./base/fonts";
+@use "./base/reset";
+@use "./base/vars";
+@use "./base/utils";
+@use "./base/base";
+@use "./base/containers";
+@use "./base/text";
+
+// Components
+@use "./components/buttons";
+@use "./components/modal-callback";
+
+@use "./components/burger/burger";
+// @use "./components/burger/burger-blaster";
+
+// @use "./components/show-more";
+// @use "./components/tabs";
+
+// Blocks
+@use "./blocks/header";
+@use "./blocks/main";
+@use "./blocks/footer";

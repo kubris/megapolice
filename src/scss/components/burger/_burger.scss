@@ -1,0 +1,101 @@
+@use "../../base/mixins";
+
+#burger {
+  display: none;
+
+  padding: 0 5px;
+
+  position: relative;
+  z-index: 1;
+
+  width: 100%;
+  max-width: 40px;
+  height: 30px;
+
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+
+  transition: max-width 0.1s ease-out, padding 0.1s ease-out;
+
+  @include mixins.mw1024 {
+    display: flex;
+  }
+
+  &:hover {
+    & > span::before {
+      top: -9px;
+    }
+
+    & > span::after {
+      top: 9px;
+    }
+  }
+
+  &:active {
+    max-width: 36px;
+		padding-right: 7px;
+		& > span::before {
+      top: -7px;
+    }
+
+    & > span::after {
+      top: 7px;
+    }
+  }
+
+  & > span {
+    position: relative;
+    display: block;
+    height: 2px;
+    width: 100%;
+    border-radius: 2px;
+    background-color: var(--bg-dark);
+    -webkit-transition: all ease 0.1s;
+    transition: all ease 0.1s;
+  }
+
+  & > span::before,
+  & > span::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    display: block;
+    height: 2px;
+    width: 100%;
+    background: var(--bg-dark);
+    -webkit-transition: all 0.2s ease-out;
+    transition: all 0.1s ease-out;
+    border-radius: 2px;
+  }
+
+  & > span::before {
+    top: -7px;
+  }
+
+  & > span::after {
+    top: 7px;
+  }
+
+  &.active {
+    & > span {
+      height: 0;
+    }
+
+    & > span::before {
+      transform: rotate(45deg);
+    }
+
+    & > span::after {
+      transform: rotate(-45deg);
+    }
+
+    & > span::before,
+    & > span::after {
+      top: 0;
+    }
+  }
+}

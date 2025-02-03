@@ -1,0 +1,15 @@
+//- svg sprite - hover color not worked except mono-svg
+mixin svg(name, cls)
+	- cls = cls || ''
+	svg(class="svg-icon svg-" + name + ' ' + cls)
+		use(xlink:href="/images/sprite/sprite-mono.svg#" + name)
+
+mixin img-svg(name, cls, alt)
+	- cls = cls || ''
+	- alt = alt || name
+	img(class=cls src="/images/svg/" + name + ".svg" alt=name)
+
+mixin img(name, cls, alt)
+	- cls = cls || ''
+	- alt = alt || 'Image'
+	img(class=cls src="/images/" + name alt=name)

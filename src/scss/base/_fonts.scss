@@ -1,0 +1,17 @@
+@use './mixins';
+
+@include mixins.font-face('Manrope', '../fonts/Manrope/Manrope-ExtraBold', 800, 'normal');
+@include mixins.font-face('Manrope', '../fonts/Manrope/Manrope-Bold', 700, 'normal');
+@include mixins.font-face('Manrope', '../fonts/Manrope/Manrope-Semibold', 600, 'normal');
+@include mixins.font-face('Manrope', '../fonts/Manrope/Manrope-Medium', 500, 'normal');
+@include mixins.font-face('Manrope', '../fonts/Manrope/Manrope-Regular', 400, 'normal');
+
+// 100: Thin
+// 200: Extra Light (Ultra Light)
+// 300: Light
+// 400: Normal
+// 500: Medium
+// 600: Semi Bold (Demi Bold)
+// 700: Bold
+// 800: Extra Bold (Ultra Bold)
+// 900: Black (Heavy)

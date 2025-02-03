@@ -1,0 +1,43 @@
+@use './mixins';
+
+:root {
+	--container-width: 1600px;
+	--container-padding: 50px;
+
+	--bg-white: #fff;
+
+	--bg-light: #FFF;
+	--bg-gray: #777;
+	--bg-dark: #111;
+	
+	--accent: #c74141;
+	--accent-dark: #752727;
+	--txt-dark: #222;
+	--txt-white: #FFF;
+
+	--font-main: "Manrope", sans-serif;
+	--font-head: "Manrope", sans-serif;
+
+	--box-shadow-top: 3px 0 12px #444;
+	--box-shadow-down: -3px 0 12px #444;
+
+	@include mixins.mw1024 {
+		--container-padding: 54px; 
+	}
+
+	@include mixins.mw768 {
+		--container-padding: 20px;
+	}	
+}
+/*
+@media (max-width: 1023.98px) {
+	:root {
+		--container-padding: 54px;
+	}
+}
+@media (max-width: 767.98px) {
+	:root {
+		--container-padding: 20px;
+	}
+}
+*/

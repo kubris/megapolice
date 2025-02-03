@@ -1,0 +1,15 @@
+extends layout/base 
+
+block variables
+	-var title = 'Главная страница'
+
+block content
+	.container
+		div(style="width:300px;margin:50px auto 0;")
+			h1 Starter Template
+			p PUG, SCSS, JS/Webpack/Babel
+			br
+			button.btn.jsOpenModal.openModal
+				+img-svg('react')
+			br
+			a.btn(href='contacts.html') to Contacts
