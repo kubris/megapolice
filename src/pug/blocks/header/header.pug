@@ -1,5 +1,57 @@
-header.header
+header.main-header
 	.container
-		.header__row
-			p(style="text-align:center") Header-module is connected
-			include ../../components/burger/icon
+		.main-header__row
+			a(class="main-header__logo", href="/")
+				+img-svg("logo", "logo__img", "Мегаполис")                   
+			.main-header__block
+				.main-header__top
+					.info
+						a.info__tel.dashed-underline(href="tel:+7 (906) 888-88-88")
+							svg.info__img
+								use(xlink:href='#tel')
+							| +7 (906) 888-88-88
+						span Пн-Пт 8:30-17:00 Оренбург
+					ul.header-socials
+						li
+							a.header-socials__link(href="https://t.me/telegram")
+								svg.header-socials__img
+									use(xlink:href='#i-tg')
+						li
+							a.header-socials__link(href="https://wa.me/whatsapp")
+								svg.header-socials__img
+									use(xlink:href='#i-whs')
+					form.header-search
+						svg.header-search__img
+							use(xlink:href='#loupe')
+						input.header-search__text(type="text" placeholder="Поиск по каталогу")
+						input.header-search__submit.v-hidden(type="submit")
+				.main-header__bottom
+					a.btn.btn--accent.main-header__catalog-btn(href="catalog.html")
+						svg.btn-icon
+							use(xlink:href='#mobnav')
+						| Каталог
+					button.btn.btn--white.main-header__callback-btn.jsCallback Обратный звонок
+					nav.nav
+						ul.nav__list
+							li.nav__item
+								a.nav__link(href="contacts.html") Контакты
+							li.nav__item
+								a.nav__link(href="products.html") Изделия
+							li.nav__item
+								a.nav__link(href="documents.html") Документы
+							li.nav__item
+								a.nav__link(href="brands.html") Бренды
+					.main-header__btns-block.btns-block
+						a.btns-block__link(href="orders.html")
+							svg.btns-block__img
+								use(xlink:href='#orders')
+							| Заказы
+						a.btns-block__link.btns-block__cart(href="cart.html")
+							svg.btns-block__img
+								use(xlink:href='#cart')
+							span.btns-block__cart-amount 0
+							| Корзина
+						a.btns-block__link(href="login.html")
+							svg.btns-block__img
+								use(xlink:href='#auth')
+							| Авторизация

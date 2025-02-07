@@ -53,7 +53,7 @@
     height: 2px;
     width: 100%;
     border-radius: 2px;
-    background-color: var(--bg-dark);
+    background-color: var(--gray-dark);
     -webkit-transition: all ease 0.1s;
     transition: all ease 0.1s;
   }
@@ -66,7 +66,7 @@
     display: block;
     height: 2px;
     width: 100%;
-    background: var(--bg-dark);
+    background: var(--gray-dark);
     -webkit-transition: all 0.2s ease-out;
     transition: all 0.1s ease-out;
     border-radius: 2px;

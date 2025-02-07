@@ -1,9 +1,18 @@
+@use './mixins';
+
 .container {
 	margin: 0 auto;
-	padding: 0 var(--container-padding);
-	max-width: var(--container-width);
-	max-width: 1140px;
+	max-width: 1200px;
 	width: 100%;
+
+	@include mixins.mw1200 {max-width: 1024px;}
+	@include mixins.mw1024 {max-width: 992px;}
+	@include mixins.mw992 {max-width: 768px;}
+	@include mixins.mw768 {max-width: 575px;}
+	@include mixins.mw575 {
+		max-width: unset;
+		padding: 0 var(--container-padding);
+	}
 }
 
 .container-fluid {
@@ -11,7 +20,6 @@
 	padding: 0 var(--container-padding);
 	max-width: var(--container-width);
 	max-width: 1920px;
-	width: 100%;
 }
 
 .container-right {

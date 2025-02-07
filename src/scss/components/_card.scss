@@ -1,0 +1,109 @@
+@use "../base/mixins";
+
+.card {
+  padding: 10px 7px;
+  position: relative;
+  transition: box-shadow 0.2s ease-in-out;
+
+  &:hover {
+    box-shadow: 0 4px 17px RGBA(0, 0, 0, 10%);
+  }
+
+  &__favorite {
+    position: absolute;
+    top: 20px;
+    right: 16px;
+
+    &-img {
+      width: 20px;
+      height: 20px;
+			stroke: #000000;
+			fill: #ffffff;
+    }
+
+		&.active {
+			.card__favorite-img {
+				stroke: var(--accent-color);
+				fill: var(--accent-color);
+			}
+		}
+  }
+
+  &__figure {
+    margin-bottom: 5px;
+    height: 208px;
+  }
+
+  &__prices {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: flex-end;
+    gap: 5px;
+
+    &-current {
+      font-size: 15px;
+      font-weight: 700;
+      color: #000;
+    }
+    &-old {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--gray-light);
+    }
+    &-discount {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--accent-color);
+    }
+  }
+
+  &__title {
+    margin-bottom: 5px;
+    font-size: 11px;
+    font-weight: 500;
+    max-height: 52px;
+    overflow: auto;
+
+    &::-webkit-scrollbar {
+      height: 3px;
+      width: 3px;
+    }
+    &::-webkit-scrollbar-thumb {
+      border-radius: 3px;
+      background-color: var(--details-color);
+    }
+  }
+
+  &__rate {
+    display: flex;
+    gap: 10px;
+
+    &-star {
+      font-size: 11px;
+      font-weight: 700;
+      color: #000;
+
+      &::before {
+        content: "★";
+        padding-right: 3px;
+        color: var(--details-color);
+        font-size: 13px;
+        line-height: 1;
+      }
+    }
+
+    &-testi {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--gray-light);
+    }
+
+    &-img {
+      width: 10px;
+      height: 10px;
+    }
+  }
+}

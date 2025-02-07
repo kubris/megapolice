@@ -1,0 +1,43 @@
+block variables
+
+include ../helpers/mixins
+
+doctype html
+html(lang="ru-RU")
+	head
+		meta(charset="utf-8")
+		title #{title}
+		meta(name="viewport" content="width=device-width,initial-scale=1")
+		meta(name="keywords" content="")
+
+		//- lazy loading style
+		<link rel="preload" href="css/swiper-bundle.min.css" as="style" onload="this.rel='stylesheet'" media="all" >
+
+		link(rel="stylesheet" href="css/style.css")
+	body
+		//- SVG Sprite
+		include ../components/sprite/svg-sprite
+
+		include ../blocks/header/header
+		.container
+			include ../components/breadcrumbs/breadcrumbs
+			.page-wrapper
+				include ../blocks/aside/aside
+				include ../blocks/main/main-aside
+		include ../blocks/footer/footer
+
+		//- calling modal windows
+		include ../components/modals/callback
+
+		// script block
+		//- script(defer src="js/vendor/fslightbox.min.js")
+		//- script(defer src="js/vendor/smooth-scroll.min.js")
+		script(defer src="js/vendor/swiper-bundle.min.js")
+		script(defer src="js/index.bundle.js")
+		//- script(defer)
+			| document.addEventListener('DOMContentLoaded', () => {
+			|	setTimeout(function () {
+			|		console.log('Scripts Lazy loading');
+			|	}, 3500);
+			| });
+		block scripts

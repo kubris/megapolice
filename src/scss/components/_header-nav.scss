@@ -1,0 +1,13 @@
+@use '../base/mixins';
+
+.nav {
+	
+	&__list {
+		margin-right: 40px;
+		display: flex;
+		gap: 20px;
+
+		font-size: 10px;
+		font-weight: 700;
+	}
+}

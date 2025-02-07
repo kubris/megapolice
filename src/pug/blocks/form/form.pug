@@ -1,0 +1,39 @@
+section.form.offset
+	.h2 Заполните форму
+	.form__row
+		.form__info
+			.form__info-title Контактная информация
+			.form__info-line
+				svg.form__info-map
+					use(xlink:href='#map')
+				span.form__info-link г. Иваново, ул. Калашникова. д. 28
+			.form__info-line
+				svg.form__info-tel
+					use(xlink:href='#tel')
+				a.form__info-link(href="tel:+79068888888") +7 (906) 888-88-88
+			.form__info-line
+				svg.form__info-mail
+					use(xlink:href='#mail')
+				a.form__info-link(href="mailto:Pochta@yandex.ru") Pochta@yandex.ru
+
+		form.form__data
+			label.form__data-label
+				| Город
+				input(type="text" name="city")
+			label.form__data-label
+				| Улица, дом, квартира
+				input(type="text" name="address")
+			.form__data-block
+				label.form__data-label
+					| Почта
+					input(type="email" name="email")
+				label.form__data-label
+					| Телефон
+					input(type="tel" name="tel")
+			.form__data-block
+				button.form__data-submit Отправить данные
+				span.form__data-agree Нажимая на кнопку, вы соглашаетесь с 
+					a(href="/") Политикой конфиденциальности
+
+		.form__img
+			+png2x-pic('images', 'form-img', ['webp','png'], 'Заполните форму')

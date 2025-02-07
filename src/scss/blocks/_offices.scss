@@ -1,0 +1,160 @@
+.offices {
+  .h2 {
+    margin-bottom: 20px;
+  }
+
+  &__row {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: 470px 1fr;
+  }
+
+  &__info {
+    &-card {
+      display: flex;
+      flex-direction: column;
+			gap: 3px;
+    }
+
+    &-show {
+      padding: 0;
+      margin-left: auto;
+    }
+
+    &-title {
+      padding: 7px 12px 7px 10px;
+      border-radius: 7px;
+      border: 1px solid var(--gray-light);
+
+      display: flex;
+      align-items: center;
+
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--gray-dark);
+
+      transition: background-position 0.4s ease-in-out, opacity 0.2s ease-in-out;
+      background-image: linear-gradient(
+        90deg,
+        #ffffff 0%,
+        #ffffff 46%,
+        #a745d4 70%,
+        #0a50d1 100%
+      );
+      background-size: 300% auto;
+      background-position: 0 0;
+
+      &:hover {
+        background-position: 100% 0;
+        color: #fff;
+
+        & .offices__info-address {
+          color: #fff;
+        }
+
+        & .offices__info-map {
+          stroke: #ffffff;
+        }
+      }
+    }
+
+    &-content {
+      padding: 7px 12px 7px 10px;
+      border-radius: 7px;
+      border: 1px solid var(--gray-light);
+      transition: opacity 0.4s ease-in-out;
+    }
+
+    &-title.hidden,
+    &-content {
+			padding: 0;
+      visibility: hidden;
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    &-title,
+    &-title.hidden + .offices__info-content {
+			padding: 7px 12px 7px 10px;
+      visibility: visible;
+      max-height: unset;
+      overflow: unset;
+      opacity: 1;
+      pointer-events: auto;
+    }
+    &-title.hidden + .offices__info-content {
+			margin-top: -6px;
+			margin-bottom: 3px;
+			padding: 10px 12px 10px 10px;
+    }
+
+    &-map {
+      margin-right: 8px;
+      width: 12px;
+      height: 16px;
+      stroke: var(--gray-dark);
+      transition: stroke 0.2s ease-in-out;
+    }
+
+    &-address {
+      transition: color 0.2s ease-in-out;
+    }
+
+    &-downarrow {
+      stroke: #fff;
+      width: 17px;
+      height: 17px;
+    }
+
+    &-uparrow {
+      stroke: var(--gray-dark);
+      width: 17px;
+      height: 17px;
+    }
+
+    &-itel {
+      stroke: var(--gray-dark);
+      width: 14px;
+      height: 14px;
+    }
+
+    &-imail {
+      stroke: var(--gray-dark);
+      width: 14px;
+      height: 14px;
+    }
+
+    &-caption {
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 15px;
+      font-weight: 700;
+      color: #000;
+    }
+
+    &-blocks {
+      display: grid;
+      grid-template-columns: 225px 1fr;
+			grid-gap: 25px;
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--footer-text);
+    }
+
+    &-block {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+
+    &-item {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+  }
+}

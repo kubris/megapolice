@@ -1,0 +1,48 @@
+@use '../base/mixins';
+
+.btns-block {
+	margin-left: auto;
+	display: flex;
+	gap: 20px;
+
+	&__link {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: space-between;
+		color: var(--text-color);
+		font-size: 10px;
+		font-weight: 500;
+
+	}
+
+	&__cart {
+		position: relative;
+
+		&-amount {
+			position: absolute;
+			top: -4px;
+			right: 8px;
+
+			display: flex;
+			align-items: center;
+			justify-content: center;
+
+			width: 15px;
+			height: 15px;
+			border-radius: 50%;
+
+			font-size: 7px;
+			font-weight: 700;
+			line-height: 1;
+			color: #fff;			
+
+			background-color: var(--details-color);
+		}
+	}
+
+	&__img {
+		height: 22px;
+		width: 22px;
+	}
+}

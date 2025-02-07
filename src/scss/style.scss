@@ -9,9 +9,23 @@
 @use "./base/text";
 
 // Components
+@use "./components/logo";
+@use "./components/header-socials";
+@use "./components/btns-block";
+@use "./components/info";
+@use "./components/header-search";
+@use "./components/header-nav";
+@use "./components/card";
+@use "./components/drop";
+@use "./components/grid";
+@use "./components/pagination";
+@use "./components/breadcrumbs";
+@use "./components/checkbox";
+@use "./components/dropdown-aside";
+@use "./components/new-goods";
+
 @use "./components/buttons";
 @use "./components/modal-callback";
-
 @use "./components/burger/burger";
 // @use "./components/burger/burger-blaster";
 
@@ -21,4 +35,12 @@
 // Blocks
 @use "./blocks/header";
 @use "./blocks/main";
+@use "./blocks/banner";
+@use "./blocks/products";
+@use "./blocks/brands";
+@use "./blocks/news";
+@use "./blocks/newest";
+@use "./blocks/offices";
+@use "./blocks/form";
+@use "./blocks/catalog-grid";
 @use "./blocks/footer";

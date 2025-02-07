@@ -1,21 +1,18 @@
 const initSwipers = () => {
-  if (document.querySelector(".x-slider")) {
-		const xSlider = new Swiper(".x-slider", {
+  if (document.querySelector(".brands__slider")) {
+		const xSlider = new Swiper(".brands__slider", {
 			loop: true,
-			slidesPerView: 2.2,
-			spaceBetween: 0,
-	
-			navigation: {
-				nextEl: ".x-slider-next",
-				prevEl: ".x-slider-prev",
-			},
+			slidesPerView: 2,
+			spaceBetween: 5,
 	
 			breakpoints: {
-				300: {
-					slidesPerView: 2.2,
+				768: {
+					slidesPerView: 5,
+					spaceBetween: 8,
 				},
 				1024: {
-					slidesPerView: 4,
+					slidesPerView: 7,
+					spaceBetween: 14,
 				},
 			},
 		});

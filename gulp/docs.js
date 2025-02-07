@@ -12,8 +12,7 @@ const gulp 			= require("gulp"),
 		plumber 		= require("gulp-plumber"),
 		notify 			= require("gulp-notify"),
 		imagemin 		= require("gulp-imagemin"),
-		webp 				= require("gulp-webp"),
-		ttf2woff2 	= require('gulp-ttf2woff2');
+		webp 				= require("gulp-webp");
 
 const webpack 	= require("webpack-stream");
 const babel 		= require("gulp-babel");
@@ -89,9 +88,8 @@ gulp.task("imagesWebp:docs", function () {
 
 // === FONTS ===
 gulp.task('fonts:docs', function(){
-	return gulp.src('./src/fonts/**/*.ttf')
+	return gulp.src('./src/fonts/*.*')
 	.pipe(gulp.dest('./docs/fonts/'))
-	.pipe(ttf2woff2())
 	.pipe(gulp.dest('./docs/fonts/'))
 });
 // === end FONTS ===

@@ -21,9 +21,23 @@
 	}
 }
 
+//@include mw1200 {}
+@mixin mw1200(){
+	@media (max-width: 1200px) {
+		@content;
+	}
+}
+
 //@include mw1024 {}
 @mixin mw1024(){
 	@media (max-width: 1024px) {
+		@content;
+	}
+}
+
+// @include mw992 {}
+@mixin mw992(){
+	@media (max-width: 992px) {
 		@content;
 	}
 }
@@ -35,9 +49,9 @@
 	}
 }
 
-// @include mw360 {}
-@mixin mw360(){
-	@media (max-width: 360px) {
+// @include mw575 {}
+@mixin mw575(){
+	@media (max-width: 575px) {
 		@content;
 	}
 }

@@ -1,0 +1,15 @@
+extends layout/aside 
+
+block variables
+	-var title = 'Каталог'
+
+block breadcrumbs
+	include components/breadcrumbs/breadcrumbs-catalog
+
+block aside
+	include blocks/aside/aside-catalog
+
+block content	
+	include blocks/catalog/catalog-grid
+	
+	//- include components/banner/banner

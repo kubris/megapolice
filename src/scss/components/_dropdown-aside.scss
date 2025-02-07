@@ -1,0 +1,49 @@
+@use "../base/mixins";
+
+.dropdown {
+	border-bottom: 1px solid #777;
+	&:last-child {
+		border: unset;
+	}
+
+	&-block {
+		margin-bottom: 20px;
+		padding: 7px 15px;
+		border-radius: 10px;
+		border: 1px solid var(--gray-light);
+	}
+
+	&-header {
+		padding: 10px 10px 10px 10px;
+		display: grid;
+		grid-template-columns: 1fr 20px;
+		grid-gap: 10px;
+		align-items: center;
+		font-size: 11px;
+		font-weight: 600;
+		cursor: pointer;
+
+		&.active .drop__uparrow {
+			transform: rotate(180deg);
+		}
+	}
+	
+	&-list {
+		display: none;
+		max-height: 0;
+		background-color: #fff;
+		border-top: 1px solid #ccc;
+		overflow: hidden;
+		transition: max-height 0.5s ease-out;
+	}
+	
+	&-item {
+		display: block;
+		padding: 10px;
+	}
+	
+	&-item:hover {
+		background-color: #f9f9f9;
+	}
+
+}

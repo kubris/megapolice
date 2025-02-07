@@ -1,0 +1,45 @@
+@use '../base/mixins';
+
+.pagination {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 6px;
+
+	li {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		width: 35px;
+		height: 35px;
+		border: 1px solid var(--details-color);
+		border-radius: 10px;
+
+		font-size: 12px;
+		font-weight: 600;
+
+		&.active {
+			color: #fff;
+			background-color: var(--details-color);
+		}
+
+		&:first-child,
+		&:last-child {
+			border-radius: 50%;
+		}
+		&:first-child {
+			margin-right: 44px;
+		}
+		&:last-child {
+			margin-left: 44px;
+		}
+	}
+
+	&--icon {
+		display: flex;
+		stroke: var(--gray-dark);
+		width: 7px;
+		height: 14px;
+	}
+}

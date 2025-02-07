@@ -1,5 +1,49 @@
-footer.footer
-	p(style="text-align:center") Footer-module is connected
-
-//- calling modal windows
-include ../../components/modals/callback
+footer.main-footer
+	.container
+		.main-footer__row
+			a.main-footer__logo(href="/")
+				+img-svg("logo", "logo__img", "Мегаполис")
+			.main-footer__info
+				.main-footer__info-title ООО "ТК "Мегаполис"
+				p 
+					a(href="/") Пользовательское соглашение 
+					| и 
+					a(href="/") Политика конфиденциальности 
+					|сайта ООО "ТК "Мегаполис"
+				p г. Иваново, ул. Калашникова, д. 28
+			ul.main-footer__list
+				li
+					a(href="about.html") О компании
+				li
+					a(href="sertificates.html") Сертификаты
+				li
+					a(href="contacts.html") Контакты
+				li
+					a(href="catalog.html") Каталог
+			ul.main-footer__list
+				li
+					a(href="actions.html") Акции
+				li
+					a(href="offices.html") Филиалы
+				li
+					a(href="lk.html") Личный кабинет
+				li
+					a(href="cart.html") Корзина
+			.main-footer__connects
+				a(href="tel:+79068888888") +7 (906) 888-88-88
+				a(href="tel:+79088888888") +7 (908) 888-88-88
+				a(href="+79109878496") +7 (910) 987-84-96
+				ul.main-footer__socials
+					li
+						a.main-footer__socials-link(href="https://t.me/telegram")
+							svg.main-footer__socials-img
+								use(xlink:href='#i-tg-grey')
+					li
+						a.main-footer__socials-link(href="https://wa.me/whatsapp")
+							svg.main-footer__socials-img
+								use(xlink:href='#i-whs-grey')
+			.main-footer__map
+				div(style='position:relative;overflow:hidden')
+					a(href='https://yandex.ru/maps?utm_medium=mapframe&utm_source=maps' style='color:#eee;font-size:12px;position:absolute;top:0px;') &YAcy;&ncy;&dcy;&iecy;&kcy;&scy;&nbsp;&Kcy;&acy;&rcy;&tcy;&ycy;
+					a(href='https://yandex.ru/maps/?ll=37.564148%2C55.654860&utm_medium=mapframe&utm_source=maps&z=8.07' style='color:#eee;font-size:12px;position:absolute;top:14px;') &YAcy;&ncy;&dcy;&iecy;&kcy;&scy;&nbsp;&Kcy;&acy;&rcy;&tcy;&ycy;
+					iframe(src='https://yandex.ru/map-widget/v1/?ll=37.50%2C55.80&z=8' width='223' height='79' frameborder='0' allowfullscreen='true' style='position:relative;border-radius:7px;')

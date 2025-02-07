@@ -1,26 +1,30 @@
 @use './mixins';
 
 :root {
-	--container-width: 1600px;
-	--container-padding: 50px;
+	--container-width: 1200px;
+	--container-padding: 15px;
 
-	--bg-white: #fff;
-
-	--bg-light: #FFF;
-	--bg-gray: #777;
-	--bg-dark: #111;
+	--bg-main: #ffffff;
 	
-	--accent: #c74141;
-	--accent-dark: #752727;
-	--txt-dark: #222;
-	--txt-white: #FFF;
+	--accent-color: #F91155;
+	--details-color: #1144AA;
+	--text-color: #181819;
 
-	--font-main: "Manrope", sans-serif;
-	--font-head: "Manrope", sans-serif;
+	--gray-light: #D9D9D9;
+	--gray: #9C9DA9;
+	--gray-dark: #484848;
+	--footer-text: #6B6B6B;
 
-	--box-shadow-top: 3px 0 12px #444;
-	--box-shadow-down: -3px 0 12px #444;
+	--font-main: "Montserrat", sans-serif;
+	--font-head: "Montserrat", sans-serif;
 
+	--box-shadow-card: 0 4px 30px RGBA(0, 0, 0, 10%);
+	--btn-gradient: linear-gradient(to right, #A745D4, #0A50D1);
+	--btn-hover-gradient: linear-gradient(to right, #FFBB00, #FFCC40);
+
+	--transition: color 0.18s ease-in-out, background-color 0.18s ease-in-out, border-color 0.18s ease-in-out, box-shadow 0.18s ease-in-out;
+
+	/*-
 	@include mixins.mw1024 {
 		--container-padding: 54px; 
 	}
@@ -28,16 +32,5 @@
 	@include mixins.mw768 {
 		--container-padding: 20px;
 	}	
+	*/
 }
-/*
-@media (max-width: 1023.98px) {
-	:root {
-		--container-padding: 54px;
-	}
-}
-@media (max-width: 767.98px) {
-	:root {
-		--container-padding: 20px;
-	}
-}
-*/

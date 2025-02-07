@@ -1,0 +1,10 @@
+.breadcrumbs
+  ul(itemscope='itemscope' itemtype='https://schema.org/BreadcrumbList')
+    li(itemprop='itemListElement' itemscope='itemscope' itemtype='https://schema.org/ListItem')
+      a.pathway(itemprop='item' href='https://my-site-name.ru/')
+        span(itemprop='name') Главная
+      meta(itemprop='position' content='1')
+    li.active(itemprop='itemListElement' itemscope='itemscope' itemtype='https://schema.org/ListItem')
+      a.pathway(itemprop='item' href='https://my-site-name.ru/catalog/')
+        span(itemprop='name') Каталог
+      meta(itemprop='position' content='2')

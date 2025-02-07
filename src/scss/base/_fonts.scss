@@ -1,10 +1,9 @@
 @use './mixins';
 
-@include mixins.font-face('Manrope', '../fonts/Manrope/Manrope-ExtraBold', 800, 'normal');
-@include mixins.font-face('Manrope', '../fonts/Manrope/Manrope-Bold', 700, 'normal');
-@include mixins.font-face('Manrope', '../fonts/Manrope/Manrope-Semibold', 600, 'normal');
-@include mixins.font-face('Manrope', '../fonts/Manrope/Manrope-Medium', 500, 'normal');
-@include mixins.font-face('Manrope', '../fonts/Manrope/Manrope-Regular', 400, 'normal');
+@include mixins.font-face('Montserrat', '../fonts/Montserrat-Bold', 700, 'normal');
+@include mixins.font-face('Montserrat', '../fonts/Montserrat-SemiBold', 600, 'normal');
+@include mixins.font-face('Montserrat', '../fonts/Montserrat-Medium', 500, 'normal');
+@include mixins.font-face('Montserrat', '../fonts/Montserrat-Regular', 400, 'normal');
 
 // 100: Thin
 // 200: Extra Light (Ultra Light)

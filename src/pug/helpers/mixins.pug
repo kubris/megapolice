@@ -2,14 +2,31 @@
 mixin svg(name, cls)
 	- cls = cls || ''
 	svg(class="svg-icon svg-" + name + ' ' + cls)
-		use(xlink:href="/images/sprite/sprite-mono.svg#" + name)
+		use(xlink:href="images/sprite/sprite-mono.svg#" + name)
 
-mixin img-svg(name, cls, alt)
+mixin img-svg(name, cls, alter)
 	- cls = cls || ''
-	- alt = alt || name
-	img(class=cls src="/images/svg/" + name + ".svg" alt=name)
+	- alter = alter || name
+	img(class=cls, src="images/svg/" + name + ".svg", alt=alter)
 
-mixin img(name, cls, alt)
+mixin img(name, cls, alter)
 	- cls = cls || ''
-	- alt = alt || 'Image'
-	img(class=cls src="/images/" + name alt=name)
+	- alter = alter || name
+	img(class=cls, src="images/" + name, alt=alter)
+//- +img('header/logo.jpg', 'main-logo', 'Логотип')
+
+mixin png-pic(path, name, type, alter)
+	- alter = alter || name
+	picture
+		each val in type
+			source(srcset=path + "/" + name + "." + val, type="image/" + val)
+		img(src="" alt=alter)
+
+mixin png2x-pic(path, name, type, alter)
+	- alter = alter || name
+	picture
+		each val in type
+			source(srcset=path + "/" + name + "@2x." + val + " 2x, " + path + "/" + name + "." + val, type="image/" + val)
+		img(src="" alt=alter)
+
+//- +picture('images', 'logo', ['webp','png'])

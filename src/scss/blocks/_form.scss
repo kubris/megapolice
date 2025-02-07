@@ -1,0 +1,173 @@
+.form {
+  .h2 {
+    margin-bottom: 20px;
+  }
+
+  &__row {
+    display: grid;
+    grid-template-columns: 278px 525px auto;
+    grid-gap: 60px;
+  }
+
+  &__info {
+    padding: 10px;
+    border-radius: 7px;
+    background: linear-gradient(to right, #a745d4 30%, #0a50d1 150%);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 600;
+
+    &-title {
+      margin-bottom: 30px;
+      font-size: 15px;
+      font-weight: 700;
+    }
+
+    &-line {
+      display: flex;
+      align-items: center;
+
+      & + .form__info-line {
+        margin-top: 5px;
+      }
+    }
+
+    &-map,
+    &-tel,
+    &-mail {
+      margin-right: 8px;
+    }
+
+    &-map {
+      width: 12px;
+      height: 16px;
+      stroke: #fff;
+    }
+    &-tel {
+      width: 14px;
+      height: 14px;
+      stroke: #fff;
+    }
+    &-mail {
+      width: 14px;
+      height: 14px;
+      stroke: #fff;
+    }
+  }
+
+  &__data {
+    input {
+      padding: 5px 9px;
+      border-radius: 7px;
+      border: 1px solid var(--gray-light);
+      font-size: 11px;
+      font-weight: 500;
+      color: #000;
+    }
+
+    &-label {
+      margin-bottom: 5px;
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      color: var(--gray-light);
+      width: 100%;
+      font-size: 9px;
+      font-weight: 700;
+    }
+
+    &-block {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    &-submit {
+      margin-top: 4px;
+      display: inline-block;
+      padding: 8px 22px;
+      border-radius: 7px;
+      color: #fff;
+      font-size: 10px;
+      font-weight: 700;
+      background-image: var(--btn-gradient);
+      white-space: nowrap;
+    }
+
+    &-agree {
+      font-size: 9px;
+      font-weight: 400;
+    }
+  }
+
+  &__img {
+    text-align: right;
+    img {
+      aspect-ratio: 204 / 159;
+    }
+  }
+
+  &__filter {
+    margin-bottom: 45px;
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid var(--gray-light);
+  }
+
+  &__interval {
+    &-title {
+      margin-bottom: 5px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+
+      font-size: 11px;
+      line-height: 1;
+      font-weight: 600;
+
+			&.active {
+        .drop__uparrow {
+          transform: rotate(180deg);
+        }
+      }
+    }
+
+    &-btn {
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;      
+    }
+
+    &-block {
+      margin-bottom: 12px;
+      display: flex;
+      gap: 7px;
+
+      & > input[type="number"] {
+        width: 100%;
+        padding: 7px 5px 7px 7px;
+        border-radius: 7px;
+        border: 1px solid var(--gray-light);
+        font-size: 11px;
+        font-weight: 600;
+
+        &::placeholder {
+          color: var(--gray-light);
+        }
+      }
+    }
+  }
+}
+
+.jsSlideBlock {
+	max-height: 0;
+	opacity: 0;
+	overflow: hidden;
+	transition: max-height 0.5s ease, opacity 0.5s ease;
+}
+
+.jsSlideBlock.active {
+	max-height: 500px;
+	opacity: 1;
+}

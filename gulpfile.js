@@ -12,8 +12,11 @@ gulp.task('default',
 	'images:dev', 'imagesWebp:dev', 
 	'uploads:dev', 'uploadsWebp:dev',
 	'svgSprite:dev', 'imageSvg:dev',
-	'fonts:dev', 'js:dev', 'root:dev'),
-	gulp.parallel('server:dev', 'watch:dev')
+	'fonts:dev', 
+	'js:dev', 'jsVendor:dev',
+	'root:dev'),
+	//gulp.parallel('server:dev', 'watch:dev')
+	gulp.parallel( 'watch:dev')
 ));
 
 // gulp docs

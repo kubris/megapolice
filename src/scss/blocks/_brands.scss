@@ -1,0 +1,43 @@
+.brands {
+	overflow: hidden;
+
+	.h2 {
+		margin-bottom: 33px;
+	}
+
+	&__card {
+		filter: grayscale(1);
+		transition: filter 0.3s ease-in-out;
+
+		&:hover {
+			filter: grayscale(0);
+		}
+	}
+
+	&__slider {
+		position: relative;
+		z-index: 1;
+
+		&::before,
+		&::after {
+			content: '';
+			position: absolute;
+			z-index: 5;
+			top: 0;
+			bottom: 0;
+
+			width: 70px;
+			height: 70px;
+		}
+
+		&::before {
+			left: 0;
+			background-image: linear-gradient(to right, #ffffffcc, transparent);
+		}
+
+		&::after {
+			right: 0;
+			background-image: linear-gradient(to left, #ffffffcc, transparent);
+		}
+	}
+}

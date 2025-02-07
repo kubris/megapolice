@@ -1,0 +1,39 @@
+@use '../base/mixins';
+
+.grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+	gap: 20px;
+
+	&-card {
+		padding: 7px;
+		border-radius: 7px;
+		transition: box-shadow 0.2s ease-in-out;
+
+		&:hover {
+			box-shadow: 0 4px 30px RGBA(0,0,0, 10%);
+		}
+	}
+
+	&-figure {
+		margin-bottom: 6px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 133px;
+		background-image: linear-gradient(to right, #A745D4 40%, #0A50D1);
+		border-radius: 7px;
+	}
+
+	&-date {
+		margin-bottom: 12px;
+		font-size: 10px;
+		font-weight: 400;
+		color: var(--gray-light);
+	}
+
+	&-text {
+		font-size: 10px;
+		font-weight: 700;
+	}
+}

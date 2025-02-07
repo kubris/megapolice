@@ -11,18 +11,24 @@ html(lang="ru-RU")
 		meta(name="keywords" content="")
 
 		//- lazy loading style
-		//- <link rel="preload" href="css/swiper-bundle.min.css" as="style" onload="this.rel='stylesheet'" media="all" >
+		<link rel="preload" href="css/swiper-bundle.min.css" as="style" onload="this.rel='stylesheet'" media="all" >
 
 		link(rel="stylesheet" href="css/style.css")
 	body
-		include ../blocks/header/header		
-		include ../blocks/main/main		
+		//- SVG Sprite
+		include ../components/sprite/svg-sprite
+
+		include ../blocks/header/header
+		include ../blocks/main/main
 		include ../blocks/footer/footer
 
+		//- calling modal windows
+		include ../components/modals/callback
+
 		// script block
-		//- script(defer src="js/fslightbox.min.js")
-		//- script(defer src="js/smooth-scroll.min.js")
-		//- script(defer src="js/swiper-bundle.min.js")
+		//- script(defer src="js/vendor/fslightbox.min.js")
+		//- script(defer src="js/vendor/smooth-scroll.min.js")
+		script(defer src="js/vendor/swiper-bundle.min.js")
 		script(defer src="js/index.bundle.js")
 		//- script(defer)
 			| document.addEventListener('DOMContentLoaded', () => {
