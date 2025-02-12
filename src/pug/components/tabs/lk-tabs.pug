@@ -1,25 +1,30 @@
 .personal__wrapper
-	.tabBtnBlock
-		button.tabBtn.active(data-tb="one") 
-			| Настройки аккаунта
-			svg
-				use(xlink:href='#arrow-right')
-		button.tabBtn(data-tb="two") 
-			| Активные заказы
-			svg
-				use(xlink:href='#arrow-right')
-		button.tabBtn(data-tb="three") 
-			| Завершенные заказы
-			svg
-				use(xlink:href='#arrow-right')
-		a.tabBtn(href="favorite.html") 
-			| Избранное
-			svg
-				use(xlink:href='#arrow-right')
-		button.tabBtn(type="button") 
-			| Выйти из системы
-			svg
-				use(xlink:href='#arrow-right')
+	.personal__buttons
+		.personal__avatar
+			+png2x-pic('images', 'user', ['webp','png'], 'Пользователь')
+			.personal__avatar-name Александр Иванов
+			.personal__avatar-city Москва
+		.tabBtnBlock
+			button.tabBtn.active(data-tb="one") 
+				| Настройки аккаунта
+				svg
+					use(xlink:href='#arrow-right')
+			button.tabBtn(data-tb="two") 
+				| Активные заказы
+				svg
+					use(xlink:href='#arrow-right')
+			button.tabBtn(data-tb="three") 
+				| Завершенные заказы
+				svg
+					use(xlink:href='#arrow-right')
+			a.tabBtn(href="favorite.html") 
+				| Избранное
+				svg
+					use(xlink:href='#arrow-right')
+			button.tabBtn(type="button") 
+				| Выйти из системы
+				svg
+					use(xlink:href='#arrow-right')
 
 	.tabDataBlock
 		.tabData(data-cnt="one")
@@ -63,11 +68,106 @@
 						button.btn.btn--accent.account-settings__form-submit(type="button") Изменить
 				.account-settings__devices
 					.h3 Ваши устройства
-					.account-settings__devices-item
+					.as-device
+						.as-device__item
+							.as-device__head
+								.as-device__name Desktop Windows
+								button(type="button") 
+									svg
+										use(xlink:href='#close')
+							.as-device__body
+								span Yandex Browser 24.10 185.253.183.254
+								span Текущий сеанс: Россия, Белгород
+						.as-device__item
+							.as-device__head
+								.as-device__name Desktop Windows
+								button(type="button") 
+									svg
+										use(xlink:href='#close')
+							.as-device__body
+								span Yandex Browser 24.10 185.253.183.254
+								span Текущий сеанс: Россия, Белгород
+
 						
 		.tabData(data-cnt="two")
 			.active-orders
 				.h3 Активные заказы
+				.active-orders__grid
+					.active-orders__grid-item
+						.active-orders__grid-top
+							.active-orders__grid-name 
+								| Заказ от 14.12.2024
+								span 555555-55
+							.active-orders__grid-status Оплачено
+							.active-orders__grid-price 899 ₽
+						.active-orders__grid-bottom
+							.active-orders__grid-delive
+								| Доставка в пункт выдачи
+								span.btn.btn--accent Доставляется
+							.active-orders__grid-figure
+								a(href="#") 
+									+img('kudo.png', 'active-orders__grid-img', 'Товар 1')
+								a(href="#") 
+									+img('kudo.png', 'active-orders__grid-img', 'Товар 2')
+				.other-products
+					.h3.mb-20 Уже заказывали
+					include ../../blocks/similar-products/already-ordered
+
 		.tabData(data-cnt="three")
 			.finished-orders
 				.h3 Завершенные заказы
+				.active-orders__grid
+					.active-orders__grid-item
+						.active-orders__grid-top
+							.active-orders__grid-name 
+								| Заказ от 14.12.2024
+								span 555555-55
+							.active-orders__grid-status Оплачено
+							.active-orders__grid-price 899 ₽
+						.active-orders__grid-bottom
+							.active-orders__grid-delive
+								| Доставка в пункт выдачи
+								span.btn.btn--accent Получено
+								span.active-orders__grid-date Доставлено 25.12.2024
+							.active-orders__grid-figure
+								a(href="#") 
+									+img('kudo.png', 'active-orders__grid-img', 'Товар 1')
+								a(href="#") 
+									+img('kudo.png', 'active-orders__grid-img', 'Товар 2')
+					.active-orders__grid-item
+						.active-orders__grid-top
+							.active-orders__grid-name 
+								| Заказ от 14.12.2024
+								span 555555-55
+							.active-orders__grid-status Оплачено
+							.active-orders__grid-price 899 ₽
+						.active-orders__grid-bottom
+							.active-orders__grid-delive
+								| Доставка в пункт выдачи
+								span.btn.btn--accent Получено
+								span.active-orders__grid-date Доставлено 25.12.2024
+							.active-orders__grid-figure
+								a(href="#") 
+									+img('kudo.png', 'active-orders__grid-img', 'Товар 1')
+								a(href="#") 
+									+img('kudo.png', 'active-orders__grid-img', 'Товар 2')
+					.active-orders__grid-item
+						.active-orders__grid-top
+							.active-orders__grid-name 
+								| Заказ от 14.12.2024
+								span 555555-55
+							.active-orders__grid-status Оплачено
+							.active-orders__grid-price 899 ₽
+						.active-orders__grid-bottom
+							.active-orders__grid-delive
+								| Доставка в пункт выдачи
+								span.btn.btn--accent Получено
+								span.active-orders__grid-date Доставлено 25.12.2024
+							.active-orders__grid-figure
+								a(href="#") 
+									+img('kudo.png', 'active-orders__grid-img', 'Товар 1')
+								a(href="#") 
+									+img('kudo.png', 'active-orders__grid-img', 'Товар 2')
+				.other-products
+					.h3.mb-20 Завершенные заказы
+					include ../../blocks/similar-products/already-ordered

@@ -1,0 +1,170 @@
+@use "../base/mixins";
+
+.calculator {
+
+	&__form {
+		display: flex;
+		flex-direction: column;
+		gap: 30px;
+	}
+
+  &__grid {
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
+		
+
+    &-item {
+      padding: 10px 15px;
+      border-radius: 7px;
+      border: 1px solid var(--gray-light);
+
+      display: flex;
+      gap: 10px;
+      align-items: center;
+			transition: box-shadow 0.2s ease-in-out;
+
+			&:focus-within {
+				box-shadow: var(--box-shadow-light);
+			}
+    }
+
+    &-name {
+      margin-right: 10px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--details-color);
+
+      svg {
+        width: 50px;
+        height: 50px;
+        stroke: var(--details-color);
+        stroke-width: 2;
+      }
+    }
+
+    &-label {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      color: var(--gray-light);
+      font-size: 9px;
+      font-weight: 700;
+
+      input {
+        padding: 5px 9px;
+        height: 30px;
+        border-radius: 7px;
+        border: 1px solid var(--gray-light);
+        max-width: 100%;
+        color: #000;
+        font-size: 10px;
+        font-weight: 500;
+      }
+      .quantity__field {
+        padding: 0;
+        height: auto;
+        width: 30px;
+        border: none;
+      }
+
+      &.cgl-price {
+				margin-left: 35px;
+				padding-right: 20px;
+				border-right: 1px solid var(--gray-light);
+        input {
+					padding: 0;
+          border: none;
+          width: 50px;
+          text-align: right;
+					height: auto;
+        }
+      }
+    }
+
+    &-close {
+      padding: 2px;
+			min-width: 16px;
+			width: 16px;
+      svg {
+        width: 8px;
+        height: 8px;
+      }
+    }
+  }
+
+  &-adds {
+    margin-top: auto;
+    .newest__grid {
+      grid-template-columns: repeat(auto-fill, minmax(224px, 1fr));
+      .card {
+        padding: 15px 7px;
+        border-radius: 11px;
+        border: 1px solid var(--gray-light);
+
+        &__add-img {
+          margin-bottom: 5px;
+          height: 70px;
+          width: auto;
+          max-width: 100%;
+          stroke: #000;
+        }
+
+        &__add-block {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 10px;
+
+          span {
+            &:first-child {
+              font-size: 12px;
+              font-weight: 600;
+              color: #000;
+            }
+
+            &:last-child {
+              font-size: 15px;
+              font-weight: 700;
+              color: #000;
+            }
+          }
+        }
+      }
+    }
+  }
+
+	&__down {
+		display: flex;
+		justify-content: flex-end;
+		gap: 20px;
+
+		&-item {
+			max-width: 225px;
+			width: 100%;
+			font-size: 11px;
+			font-weight: 600;
+
+			.btn {
+				width: 100%;
+				height: 100%;
+			}
+		}
+
+		&-line {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			gap: 10px;
+		}
+
+		&-price {
+			font-size: 24px;
+			font-weight: 600;
+			color: #000;
+		}
+	}
+}

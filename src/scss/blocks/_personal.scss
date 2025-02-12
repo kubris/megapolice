@@ -1,10 +1,40 @@
-@use '../base/mixins';
+@use "../base/mixins";
 
 .personal {
-	&__wrapper {
-		display: grid;
-		grid-template-columns: 1fr 1.5fr;
-		align-items: flex-start;
-		grid-gap: 20px;
-	}
+  &__wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    align-items: flex-start;
+    grid-gap: 20px;
+  }
+
+  &__buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    padding: 20px 10px;
+    border-radius: 10px;
+    border: 1px solid var(--gray-light);
+    box-shadow: var(--box-shadow-light);
+  }
+
+  &__avatar {
+		display: flex;
+		flex-direction: column;
+    align-self: center;
+		text-align: center;
+		font-size: 15px;
+
+		&-name {
+			margin-top: 20px;
+			font-weight: 600;
+			color: #000;
+		}
+		&-city {
+			margin-top: 5px;
+			font-weight: 500;
+			color: var(--gray-light);
+		}
+  }
 }

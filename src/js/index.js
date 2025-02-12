@@ -531,5 +531,11 @@ const TabManager = {
 	}
 };
 
-document.addEventListener("DOMContentLoaded", () => TabManager.init('.tabBtn', '.tabData'));
+if(document.querySelector('.tabBtn') && document.querySelector('.tabData')) {
+	document.addEventListener("DOMContentLoaded", () => TabManager.init('.tabBtn', '.tabData'));
+}
 // === end TABS - LK
+
+// === start CUSTOM SELECT - CALCULATOR
+
+// === end CUSTOM SELECT - CALCULATOR

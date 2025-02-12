@@ -13,7 +13,7 @@ mixin img(name, cls, alter)
 	- cls = cls || ''
 	- alter = alter || name
 	img(class=cls, src="images/" + name, alt=alter)
-//- +img('header/logo.jpg', 'main-logo', 'Логотип')
+//- +img('logo.jpg', 'main-logo', 'Логотип')
 
 mixin png-pic(path, name, type, alter)
 	- alter = alter || name
@@ -29,4 +29,4 @@ mixin png2x-pic(path, name, type, alter)
 			source(srcset=path + "/" + name + "@2x." + val + " 2x, " + path + "/" + name + "." + val, type="image/" + val)
 		img(src="" alt=alter)
 
-//- +picture('images', 'logo', ['webp','png'])
+//- +png2x-pic('images', 'logo', ['webp','png'], 'Иван')
