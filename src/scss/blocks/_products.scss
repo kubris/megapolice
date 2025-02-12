@@ -1,3 +1,5 @@
+@use '../base/mixins';
+
 .products {
 	display: grid;
 	grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
@@ -19,23 +21,6 @@
 			background-position: 80px 28px;
 			background-size: 220px 220px;
 			background-repeat: no-repeat;
-
-		// position: relative;
-		// //overflow: hidden;
-
-		// &::after {
-		// 	content: '';
-		// 	position: absolute;
-		// 	right: 0;
-		// 	top: 0;
-		// 	display: block;
-		// 	width: 200px;
-		// 	height: 200px;
-		// 	background-image: url("data:image/svg+xml,%3Csvg width='200' height='200' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M 50,5 L 61,35 L 98,35 L 68,57 L 79,91 L 50,70 L 21,91 L 32,57 L 2,35 L 39,35 Z' fill='none' stroke='%23D9D9D9' stroke-width='2' /%3E%3C/svg%3E");
-		// 	background-size: contain;
-		// 	background-position: center;
-		// 	pointer-events: none;
-		// }
 
 		&:nth-child(1) .products__card-img {
 			width: 74px;

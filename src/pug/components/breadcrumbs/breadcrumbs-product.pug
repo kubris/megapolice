@@ -1,0 +1,14 @@
+.breadcrumbs
+	ul(itemscope='itemscope' itemtype='https://schema.org/BreadcrumbList')
+		li(itemprop='itemListElement' itemscope='itemscope' itemtype='https://schema.org/ListItem')
+			a.pathway(itemprop='item' href='http://localhost:3000/')
+				span(itemprop='name') Главная
+			meta(itemprop='position' content='1')
+		li.active(itemprop='itemListElement' itemscope='itemscope' itemtype='https://schema.org/ListItem')
+			a.pathway(itemprop='item' href='http://localhost:3000/catalog.html')
+				span(itemprop='name') Каталог
+			meta(itemprop='position' content='2')
+		li.active(itemprop='itemListElement' itemscope='itemscope' itemtype='https://schema.org/ListItem')
+			a.pathway(itemprop='item' href='http://localhost:3000/product.html')
+				span(itemprop='name') Монтажная пена
+			meta(itemprop='position' content='3')

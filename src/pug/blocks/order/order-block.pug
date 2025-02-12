@@ -1,0 +1,128 @@
+section.order.offset
+	.h2.h2--xm Оформление заказа
+	.order__wrapper
+		.cart__grid.order__grid
+			.cart__grid-goods.cart-goods.jsShowBlock
+				.cart-goods__item
+					button.cart-goods__close
+						svg
+							use(xlink:href='#close')
+					.cart-goods__figure
+						+img('kudo.png', 'cart-goods__img', 'KUPH05U15+ Пена полиуретановая монтажная бытовая')
+					.cart-goods__desc
+						.cart-goods__title Пена
+						.cart-goods__info
+							.cart-goods__type 
+								span Тип товара
+								span Цвет							
+							.cart-goods__color
+								span Пена летняя
+								span Белый	
+							.cart-goods__price 
+								| 199 ₽
+				.cart-goods__item
+					button.cart-goods__close
+						svg
+							use(xlink:href='#close')
+					.cart-goods__figure
+						+img('kudo.png', 'cart-goods__img', 'KUPH05U15+ Пена полиуретановая монтажная бытовая')
+					.cart-goods__desc
+						.cart-goods__title Пена
+						.cart-goods__info
+							.cart-goods__type 
+								span Тип товара
+								span Цвет							
+							.cart-goods__color
+								span Пена летняя
+								span Белый	
+							.cart-goods__price 
+								| 199 ₽
+				.cart-goods__item
+					button.cart-goods__close
+						svg
+							use(xlink:href='#close')
+					.cart-goods__figure
+						+img('kudo.png', 'cart-goods__img', 'KUPH05U15+ Пена полиуретановая монтажная бытовая')
+					.cart-goods__desc
+						.cart-goods__title Пена
+						.cart-goods__info
+							.cart-goods__type 
+								span Тип товара
+								span Цвет							
+							.cart-goods__color
+								span Пена летняя
+								span Белый	
+							.cart-goods__price 
+								| 199 ₽
+				.cart-goods__item
+					button.cart-goods__close
+						svg
+							use(xlink:href='#close')
+					.cart-goods__figure
+						+img('kudo.png', 'cart-goods__img', 'KUPH05U15+ Пена полиуретановая монтажная бытовая')
+					.cart-goods__desc
+						.cart-goods__title Пена
+						.cart-goods__info
+							.cart-goods__type 
+								span Тип товара
+								span Цвет							
+							.cart-goods__color
+								span Пена летняя
+								span Белый	
+							.cart-goods__price 
+								| 199 ₽
+				.cart-goods__item
+					button.cart-goods__close
+						svg
+							use(xlink:href='#close')
+					.cart-goods__figure
+						+img('kudo.png', 'cart-goods__img', 'KUPH05U15+ Пена полиуретановая монтажная бытовая')
+					.cart-goods__desc
+						.cart-goods__title Пена
+						.cart-goods__info
+							.cart-goods__type 
+								span Тип товара
+								span Цвет							
+							.cart-goods__color
+								span Пена летняя
+								span Белый	
+							.cart-goods__price 
+								| 199 ₽
+
+			form.cart__grid-paid
+				.to-pay
+					.to-pay__title
+						span К оплате:
+						span 890 ₽
+					.to-pay__item
+						span Товары:
+						span 3 шт
+					.to-pay__item
+						span Скидка:
+						span 1 999 ₽ 
+
+				.delive
+					.delive__item
+						.h3 Способ доставки
+						.delive__choice
+							label.delivery__item-label
+								input.v-hidden.radio-real(type='radio' name='delive' checked)
+								span.radio-custom
+								| Курьером
+							label.delivery__item-label
+								input.v-hidden.radio-real(type='radio' name='delive' checked)
+								span.radio-custom
+								| Самовывоз
+					.delive__item
+						.h3 Адрес доставки
+						input.delive__address(type="text", placeholder="Введите адрес доставки")
+
+				.place-on
+					p Нажимая на кнопку, вы соглашаетесь с Политикой конфиденциальности
+					button.btn.btn--accent.delive__submit(type="button") Оформить заказ
+
+		button.order__show-more.jsShowBtn(type="button") 
+			span.od-hide Смотреть все
+			span.od-show Наверх
+			svg
+				use(xlink:href='#arrow-down')

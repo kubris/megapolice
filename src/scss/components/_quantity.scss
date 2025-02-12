@@ -1,0 +1,45 @@
+@use "../base/mixins";
+
+.quantity {
+  display: flex;
+  gap: 5px;
+
+  &__minus,
+  &__plus {
+    padding: 0;
+    height: 20px;
+    width: 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+    border: 1px solid var(--gray-light);
+    transition: border-color 0.2s ease-in-out;
+    cursor: pointer;
+    outline: 0;
+
+    &:hover {
+      border-color: var(--details-color);
+    }
+  }
+  &__field {
+    width: 20px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 11px;
+    line-height: 1;
+    color: #000;
+  }
+  &__minus svg,
+  &__plus svg {
+    stroke: var(--gray-dark);
+    stroke-width: 2;
+    transition: 0.5s;
+  }
+  &__minus:hover svg,
+  &__plus:hover svg {
+    stroke: var(--details-color);
+  }
+}

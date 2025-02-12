@@ -1,0 +1,81 @@
+@use "../base/mixins";
+
+.product {
+  &__info {
+    &-title {
+			margin-bottom: 12px;
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--dark-text);
+    }
+
+		&-rate {
+			align-items: center;
+			gap: 5px;
+			font-weight: 700;
+		}
+
+		.card__rate-testi {
+			margin-left: 5px;
+			font-weight: 40;
+		}
+
+		.card__favorite-img {
+			width: 15px;
+			height: 15px;
+		}
+
+		&-btns {
+			margin: 14px 0 15px;
+			display: flex;
+			gap: 10px;
+
+			button {
+				width: 50px;
+				height: 50px;
+				border-radius: 7px;
+				border: 1px solid var(--gray-light);
+
+				&.active {
+					border-color: var(--details-color);
+				}
+			}
+		}
+
+		&-spec {
+			.h3 {
+				margin-bottom: 6px;
+				font-size: 14px;
+			}
+		}
+
+		&-accent {
+			display: flex;
+			span {
+				font-weight: 700!important;
+			}
+		}
+  }
+}
+.spec {
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+
+  &__item {
+		font-size: 11px;
+		font-weight: 700;
+		color: #000;
+
+		span {
+			display: inline-block;
+			max-width: 95px;
+			width: 100%;
+			color: var(--gray-dark);
+			font-weight: 400;
+		}
+
+    &-art {
+    }
+  }
+}

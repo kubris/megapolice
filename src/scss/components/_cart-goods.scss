@@ -1,0 +1,100 @@
+@use "../base/mixins";
+
+.cart-goods {
+  &__item {
+    padding: 10px;
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    gap: 35px;
+
+    border-radius: 10px;
+    border: 1px solid var(--gray-light);
+    box-shadow: var(--box-shadow-light);
+  }
+
+  &__figure {
+    width: 75px;
+    min-width: 75px;
+  }
+
+  &__desc {
+    width: 100%;
+  }
+
+  &__close {
+    position: absolute;
+    top: 10px;
+    right: 8px;
+
+    svg {
+      width: 10px;
+      height: 10px;
+    }
+  }
+
+  &__title {
+    margin-bottom: 5px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #000;
+  }
+
+  &__text {
+    margin-bottom: 5px;
+    font-size: 11px;
+    font-weight: 400;
+    color: #000;
+    max-width: 348px;
+    width: 100%;
+  }
+
+  &__info {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 20px;
+  }
+
+  &__type,
+  &__color {
+    font-size: 11px;
+    font-weight: 500;
+    span {
+      margin-bottom: 4px;
+      display: block;
+    }
+  }
+
+  &__type {
+    min-width: 80px;
+  }
+
+  &__color {
+    min-width: 120px;
+  }
+
+  .quantity {
+    align-items: center;
+    max-width: 60px;
+    min-width: 60px;
+    width: 100%;
+  }
+  .quantity__field {
+    font-weight: 400;
+  }
+  .quantity__minus,
+  .quantity__plus {
+    width: 15px;
+    height: 15px;
+  }
+
+  &__price {
+    font-size: 16px;
+    font-weight: 600;
+    max-width: 100px;
+    min-width: 100px;
+    width: 100%;
+    text-align: right;
+  }
+}

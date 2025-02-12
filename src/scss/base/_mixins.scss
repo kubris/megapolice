@@ -14,42 +14,43 @@
 	}
 }
 
-//@include mw1440 {}
+// @use "../base/mixins";
+//@include mixins.mw1440 {}
 @mixin mw1440(){
 	@media (max-width: 1440px) {
 		@content;
 	}
 }
 
-//@include mw1200 {}
+//@include mixins.mw1200 {}
 @mixin mw1200(){
 	@media (max-width: 1200px) {
 		@content;
 	}
 }
 
-//@include mw1024 {}
+//@include mixins.mw1024 {}
 @mixin mw1024(){
 	@media (max-width: 1024px) {
 		@content;
 	}
 }
 
-// @include mw992 {}
+// @include mixins.mw992 {}
 @mixin mw992(){
 	@media (max-width: 992px) {
 		@content;
 	}
 }
 
-// @include mw768 {}
+// @include mixins.mw768 {}
 @mixin mw768(){
 	@media (max-width: 768px) {
 		@content;
 	}
 }
 
-// @include mw575 {}
+// @include mixins.mw575 {}
 @mixin mw575(){
 	@media (max-width: 575px) {
 		@content;

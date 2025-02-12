@@ -1,0 +1,73 @@
+.personal__wrapper
+	.tabBtnBlock
+		button.tabBtn.active(data-tb="one") 
+			| Настройки аккаунта
+			svg
+				use(xlink:href='#arrow-right')
+		button.tabBtn(data-tb="two") 
+			| Активные заказы
+			svg
+				use(xlink:href='#arrow-right')
+		button.tabBtn(data-tb="three") 
+			| Завершенные заказы
+			svg
+				use(xlink:href='#arrow-right')
+		a.tabBtn(href="favorite.html") 
+			| Избранное
+			svg
+				use(xlink:href='#arrow-right')
+		button.tabBtn(type="button") 
+			| Выйти из системы
+			svg
+				use(xlink:href='#arrow-right')
+
+	.tabDataBlock
+		.tabData(data-cnt="one")
+			.account-settings
+				.account-settings__info
+					.h3 Информация профиля
+					form.account-settings__form-info
+						label
+							| Страна
+							input(type="text")
+						label
+							| Город
+							input(type="text")
+						label
+							| Улица, дом, квартира
+							input(type="text")
+						label
+							| Почта
+							input(type="email")
+						label
+							| Телефон
+							input(type="tel")
+						button.btn.btn--accent.account-settings__form-submit(type="button") Изменить
+
+				.account-settings__bank
+					.h3 Банковские реквизиты
+					span.account-settings__bank-name ПАО Сбербанк
+					form.account-settings__form-bank
+						label
+							|  Имя
+							input(type="text")
+						label
+							| Номер карты
+							input(type="text")
+						label
+							| Дата
+							input(type="text")
+						label
+							| CVS
+							input(type="email")
+						button.btn.btn--accent.account-settings__form-submit(type="button") Изменить
+				.account-settings__devices
+					.h3 Ваши устройства
+					.account-settings__devices-item
+						
+		.tabData(data-cnt="two")
+			.active-orders
+				.h3 Активные заказы
+		.tabData(data-cnt="three")
+			.finished-orders
+				.h3 Завершенные заказы

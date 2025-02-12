@@ -1,0 +1,10 @@
+@use '../base/mixins';
+
+.personal {
+	&__wrapper {
+		display: grid;
+		grid-template-columns: 1fr 1.5fr;
+		align-items: flex-start;
+		grid-gap: 20px;
+	}
+}

@@ -1,0 +1,128 @@
+@use "../base/mixins";
+
+.radio {
+
+  &-custom {
+    position: relative;
+    display: inline-block;
+    margin-right: 5px;
+    width: 20px;
+    height: 20px;
+    background-color: transparent;
+    border: 2px solid var(--gray-light);
+    border-radius: 50%;
+    vertical-align: sub;
+    transition: box-shadow 0.2s ease-in;
+    cursor: pointer;
+
+    &::before {
+      content: "";
+      display: inline-block;
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      background-color: var(--gray-dark);
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0);
+      transition: 0.2s ease-in;
+    }
+  }
+
+  &-real {
+    position: absolute;
+    z-index: -1;
+    display: block;
+    width: 0;
+    height: 0;
+    opacity: 0;
+    overflow: hidden;
+
+    &:checked + .radio-custom::before {
+      transform: translate(-50%, -50%) scale(1);
+    }
+
+    &:disabled {
+      & + .radio-custom {
+        border: 2px solid #ccc;
+        background-color: #efefef;
+        cursor: default;
+      }
+    }
+
+    &:hover:not(:disabled) + .radio-custom,
+    &:focus + .radio-custom {
+      box-shadow: 0 0 3px var(--details-color);
+    }
+  }
+}
+
+.delivery {
+  &-wrapper {
+    padding: 20px;
+    max-width: 500px;
+    box-shadow: 0 0 18px var(--gray);
+    border-radius: 15px;
+  }
+
+  &__item {
+    position: relative;
+    padding: 5px 0 5px 23px;
+    display: flex;
+    align-items: flex-end;
+
+		font-size: 11px;
+
+    &:not(:last-child) {
+      border-bottom: 1px solid var(--gray-light);
+    }
+
+    .radio-custom {
+      position: absolute;
+      left: 0;
+    }
+
+    label {
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+			font-weight: 600;
+			
+			& > span:not(.delivery__item-checkpoint) {
+				color: var(--text-color);
+			}
+				
+    }
+
+		&-checkpoint {
+			font-weight: 400;
+			color: var(--gray-dark);
+		}
+
+    .radio-custom {
+      margin: 0;
+      width: 18px;
+      height: 18px;
+
+      &::before {
+        content: "";
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background-color: #38577a;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(0);
+        transition: 0.2s ease-in;
+      }
+    }
+
+    &-date {
+      margin-left: auto;
+    }
+  }
+}

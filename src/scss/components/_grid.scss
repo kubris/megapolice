@@ -3,6 +3,7 @@
 .grid {
 	display: grid;
 	grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+	grid-template-rows: repeat(3, 1fr);
 	gap: 20px;
 
 	&-card {
@@ -35,5 +36,9 @@
 	&-text {
 		font-size: 10px;
 		font-weight: 700;
+	}
+
+	&--adds {
+		grid-template-rows: repeat(2, auto);
 	}
 }

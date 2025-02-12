@@ -31,15 +31,12 @@
 	}
 
 	&.btn--accent {
-		padding: 5px 28px 5px 18px;
-		height: 40px;
+		padding: 5px 28px 5px 18px;		
 		background-image: var(--btn-gradient);
 		background-position: 300% 0;
-		font-size: 13px;
-		font-weight: 700;
 		color: #fff;
 		transition: .4s ease;
-		background-image: linear-gradient(90deg, #A745D4 0%, #0A50D1 46%, #0A50D1 70%, #0A50D1 100%);
+		background-image: linear-gradient(90deg, #A745D4 0%, #0A50D1 90%);
 		background-size: 300% auto;
 		background-position: 0 0;
 

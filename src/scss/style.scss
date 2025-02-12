@@ -23,6 +23,14 @@
 @use "./components/checkbox";
 @use "./components/dropdown-aside";
 @use "./components/new-goods";
+@use "./components/slider-goods";
+@use "./components/product-info";
+@use "./components/product-amount";
+@use "./components/quantity";
+@use "./components/delivery";
+@use "./components/testimonials";
+@use "./components/cart-goods";
+@use "./components/lk-tabs";
 
 @use "./components/buttons";
 @use "./components/modal-callback";
@@ -43,4 +51,8 @@
 @use "./blocks/offices";
 @use "./blocks/form";
 @use "./blocks/catalog-grid";
+@use "./blocks/product";
+@use "./blocks/cart-block";
+@use "./blocks/order";
+@use "./blocks/personal";
 @use "./blocks/footer";

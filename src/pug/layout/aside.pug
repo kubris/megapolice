@@ -21,9 +21,16 @@ html(lang="ru-RU")
 		include ../blocks/header/header
 		.container
 			include ../components/breadcrumbs/breadcrumbs
+			
+			if pageTitle
+				div.h2.h2--xm #{pageTitle}
+
 			.page-wrapper
 				include ../blocks/aside/aside
 				include ../blocks/main/main-aside
+		
+		include ../blocks/main/additional
+
 		include ../blocks/footer/footer
 
 		//- calling modal windows

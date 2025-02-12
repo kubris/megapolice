@@ -1,15 +1,15 @@
-extends layout/aside 
+extends layout/base-breadcrumb 
 
 block variables
-	-var title = 'Каталог'
+	-var title = 'Продукт'
 
 block breadcrumbs
-	include components/breadcrumbs/breadcrumbs-catalog
-
-block aside
-	include blocks/aside/aside-catalog
+	include components/breadcrumbs/breadcrumbs-product
 
 block content	
-	include blocks/catalog/catalog-grid
+	include blocks/products/product-block
+
+	include blocks/testimonials/testimonials
 	
-	//- include components/banner/banner
+	include blocks/similar-products/similar-products
+	

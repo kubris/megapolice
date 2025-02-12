@@ -1,0 +1,51 @@
+.slider
+	.slider__flex
+		.slider__col
+			.slider__prev.m-hide 
+				svg
+					use(xlink:href='#arrow-up')
+			.slider__thumbs
+				.swiper-container
+					.swiper-wrapper
+						.swiper-slide
+							.slider__image
+								+img('kudo.png', 'card__figure-img', '')
+						.swiper-slide
+							.slider__image
+								+img('kudo.png', 'card__figure-img', '')
+						.swiper-slide
+							.slider__image
+								+img('kudo.png', 'card__figure-img', '')
+						.swiper-slide
+							.slider__image
+								+img('kudo.png', 'card__figure-img', '')
+						.swiper-slide
+							.slider__image
+								+img('kudo.png', 'card__figure-img', '')
+			.slider__next.m-hide 
+				svg
+					use(xlink:href='#arrow-down')
+		.slider__images
+			.slider__prev.m-show 
+				svg
+					use(xlink:href='#arrow-left')
+			.swiper-container
+				.swiper-wrapper
+					.swiper-slide
+						.slider__image
+							+img('kudo.png', 'card__figure-img', '')
+					.swiper-slide
+						.slider__image
+							+img('kudo.png', 'card__figure-img', '')
+					.swiper-slide
+						.slider__image
+							+img('kudo.png', 'card__figure-img', '')
+					.swiper-slide
+						.slider__image
+							+img('kudo.png', 'card__figure-img', '')
+					.swiper-slide
+						.slider__image
+							+img('kudo.png', 'card__figure-img', '')
+			.slider__next.m-show 
+				svg
+					use(xlink:href='#arrow-right')

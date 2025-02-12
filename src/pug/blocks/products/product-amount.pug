@@ -1,0 +1,28 @@
+.product__amount
+	.product__amount-top
+		.product__amount-btns
+			label.product__amount-btn
+				input.v-hidden(type="radio" name="amount" value="1" checked)
+				| Объем
+				span 100 мл
+			label.product__amount-btn
+				input.v-hidden(type="radio" name="amount" value="1.4")
+				| Объем
+				span 150 мл
+			label.product__amount-btn
+				input.v-hidden(type="radio" name="amount" value="2.6")
+				| Объем
+				span 300 мл
+		.product__amount-price
+			.product__amount-title
+				| Итоговая стоимость
+			.product__amount-nums
+				span.pan-new.jsPanCost 199 ₽ 
+				sapn.pan-old.jsPanOld 299 ₽ 
+		.product__amount-adds
+			button.btn.btn--accent(type="button") Добавить в корзину
+
+			//- include .quantity
+			include ../../components/quantity/quantity
+	.product__amount-bottom
+		button.btn.btn--accent(type="button") Купить в один клик

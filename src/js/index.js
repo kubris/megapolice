@@ -256,3 +256,280 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 // === end SHOW / HIDE INTERVAL
+
+// === start SLIDER FOR GOODS
+const swThumbs = document.querySelector(".slider__thumbs .swiper-container");
+const swImages = document.querySelector(".slider__images .swiper-container");
+if (swThumbs && swImages) {
+  const sliderThumbs = new Swiper(".slider__thumbs .swiper-container", {
+    direction: "vertical",
+    slidesPerView: 3,
+    spaceBetween: 5,
+    navigation: {
+      nextEl: ".slider__next",
+      prevEl: ".slider__prev",
+    },
+    freeMode: true,
+    breakpoints: {
+      0: {
+        enabled: false,
+      },
+      575: {
+        direction: "vertical",
+        enabled: true,
+      },
+    },
+  });
+
+  const sliderImages = new Swiper(".slider__images .swiper-container", {
+    direction: "vertical",
+    slidesPerView: 1,
+    spaceBetween: 10,
+    mousewheel: true,
+    navigation: {
+      nextEl: ".slider__next",
+      prevEl: ".slider__prev",
+    },
+    grabCursor: true,
+    thumbs: {
+      swiper: sliderThumbs,
+    },
+    breakpoints: {
+      0: {
+        direction: "horizontal",
+      },
+      575: {
+        direction: "vertical",
+      },
+    },
+  });
+}
+// === end SLIDER FOR GOODS
+
+// === start QUANTITY
+const productAmountElement = document.querySelector(".product__amount");
+
+if (productAmountElement) {
+  const basePriceElement = productAmountElement.querySelector(".jsPanCost");
+  const oldPriceElement = productAmountElement.querySelector(".jsPanOld");
+  const originalPrice = parseFloat(basePriceElement.innerText) || 0;
+  const priceCoefficient =
+    parseFloat(oldPriceElement.innerText) / originalPrice || 1;
+
+  function updatePrice() {
+    const quantityInput =
+      productAmountElement.querySelector(".quantity__field");
+    const count = parseInt(quantityInput.value) || 1;
+    const selectedRadio = document.querySelector(
+      ".product__amount-btns input[type='radio']:checked"
+    );
+
+    if (selectedRadio) {
+      const coefficient = parseFloat(selectedRadio.value);
+      const newPrice = originalPrice * coefficient * count;
+      basePriceElement.innerHTML = `${newPrice.toFixed(2)} ₽`;
+      oldPriceElement.innerHTML = `${(newPrice * priceCoefficient).toFixed(
+        2
+      )} ₽`;
+    }
+  }
+
+  document
+    .querySelectorAll(".product__amount-btns input[type='radio']")
+    .forEach((radio) => {
+      radio.addEventListener("change", updatePrice);
+    });
+
+  document
+    .querySelectorAll(".quantity__minus, .quantity__plus")
+    .forEach((button) => {
+      button.addEventListener("click", () => {
+        const quantityInput =
+          button.parentElement.querySelector(".quantity__field");
+        let count = Math.max(
+          1,
+          parseInt(quantityInput.value) +
+            (button.classList.contains("quantity__plus") ? 1 : -1)
+        );
+        quantityInput.value = count;
+        updatePrice();
+      });
+    });
+
+  document.querySelectorAll(".quantity__field").forEach((input) => {
+    input.addEventListener("input", function () {
+      this.value = Math.max(1, this.value.replace(/[^0-9]/g, "")) || 1;
+      const maxCount = parseInt(this.dataset.maxCount) || Infinity;
+      this.value = Math.min(parseInt(this.value), maxCount) || 1;
+      updatePrice();
+    });
+  });
+
+  updatePrice();
+}
+// === end QUANTITY
+
+// === start TESTIMONIALS SLIDER
+const tSl = document.querySelector(".testimonials__slider");
+if (tSl) {
+  const testiSlider = new Swiper(tSl, {
+    slidesPerView: 1,
+    spaceBetween: 14,
+    loop: true,
+    navigation: {
+      nextEl: ".testimonials__slider-next",
+      prevEl: ".testimonials__slider-prev",
+    },
+    breakpoints: {
+      575: {
+        slidesPerView: 2,
+      },
+      1024: {
+        slidesPerView: 3,
+      },
+    },
+  });
+}
+// === end TESTIMONIALS SLIDER
+
+// === start CART ITEM - CALCULATE
+// -- Скрипт не учитывает динамического добавления элементов, только переход в корзину с уже готовым набором товаров. 
+// -- При удалении товара из корзины всё работает хорошо.
+document.addEventListener('DOMContentLoaded', () => {
+  const priceElements = document.querySelectorAll('.cart-goods__price');
+
+  if (priceElements.length > 0) {
+    const carts = document.querySelectorAll('.quantity__cart');
+
+    carts.forEach(cart => {
+      const quantityField = cart.querySelector('.quantity__field');
+      const priceElement = cart.closest('.cart-goods__info').querySelector('.cart-goods__price');
+      const basePrice = parseFloat(priceElement.textContent.replace(/[^\d.-]/g, ''));
+
+      function updatePrice() {
+        const quantity = parseInt(quantityField.value, 10);
+        const totalPrice = quantity * basePrice;
+        priceElement.textContent = `${totalPrice.toFixed(2)} ₽`;
+      }
+
+      function changeQuantity(amount) {
+        let quantity = parseInt(quantityField.value, 10);
+        const maxCount = parseInt(quantityField.dataset.maxCount, 10);
+        let changed = false;
+
+        quantity += amount;
+
+        if (quantity < 1) quantity = 1;
+        if (quantity > maxCount) quantity = maxCount;
+        if (quantity !== parseInt(quantityField.value, 10)) changed = true;
+
+        quantityField.value = quantity;
+        if (changed) updatePrice();
+      }
+
+      let isButtonPressed = false;
+      let interval;
+      let timeout;
+
+      cart.querySelector('.quantity__minus').addEventListener('mousedown', () => {
+        isButtonPressed = true;
+        changeQuantity(-1);
+        timeout = setTimeout(() => {
+          interval = setInterval(() => {
+            if (isButtonPressed) changeQuantity(-1);
+          }, 100);
+        }, 500);
+      });
+
+      cart.querySelector('.quantity__plus').addEventListener('mousedown', () => {
+        isButtonPressed = true;
+        changeQuantity(1);
+        timeout = setTimeout(() => {
+          interval = setInterval(() => {
+            if (isButtonPressed) changeQuantity(1);
+          }, 100);
+        }, 500);
+      });
+
+      document.addEventListener('mouseup', () => {
+        isButtonPressed = false;
+        clearInterval(interval);
+        clearTimeout(timeout);
+      });
+      document.addEventListener('mouseleave', () => {
+        isButtonPressed = false;
+        clearInterval(interval);
+        clearTimeout(timeout);
+      });
+
+      updatePrice();
+    });
+  }
+});
+// === end CART ITEM - CALCULATE
+
+// === start SHOW BYTTON - ORDER
+const showMore = document.querySelectorAll(".jsShowBtn");
+if (showMore.length > 0) {
+	showMore.forEach((sm) => {
+		sm.addEventListener("click", (e) => {
+			e.currentTarget.parentElement.classList.toggle("show");
+			e.currentTarget.classList.toggle("show");
+		});
+	});
+}
+// === end SHOW BYTTON - ORDER
+
+// === start TABS - LK
+const TabManager = {
+	fadeIn(el, timeout, display = "block") {
+			el.style.opacity = 0;
+			el.style.display = display;
+			el.style.transition = `opacity ${timeout}ms`;
+			setTimeout(() => { el.style.opacity = 1; }, 10);
+	},
+
+	fadeOut(el, timeout) {
+			el.style.opacity = 1;
+			el.style.transition = `opacity ${timeout}ms`;
+			el.style.opacity = 0;
+			setTimeout(() => { el.style.display = "none"; }, timeout);
+	},
+
+	hideAll(els) {
+			els.forEach(item => item.style.display = "none");
+	},
+
+	delAllActiveBtns(els) {
+			els.forEach(item => item.classList.remove("active"));
+	},
+
+	init(btnClass, blockClass) {
+			const btns = document.querySelectorAll(btnClass);
+			const blocks = document.querySelectorAll(blockClass);
+			
+			if (btns.length && blocks.length) {
+					this.hideAll(blocks);
+					blocks[0].style.display = "block";
+
+					btns.forEach(btn => {
+							btn.addEventListener("click", (e) => {
+									const currBlock = document.querySelector(`[data-cnt="${e.currentTarget.dataset.tb}"]`);
+
+									this.delAllActiveBtns(btns);
+									e.currentTarget.classList.add("active");
+									this.hideAll(blocks);
+
+									if (currBlock) {
+											this.fadeIn(currBlock, 1000);
+									}
+							});
+					});
+			} else {
+					console.error("No buttons or no blocks found!");
+			}
+	}
+};
+
+document.addEventListener("DOMContentLoaded", () => TabManager.init('.tabBtn', '.tabData'));
+// === end TABS - LK

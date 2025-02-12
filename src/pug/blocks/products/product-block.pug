@@ -1,0 +1,47 @@
+section.product.offset
+	.product__wrapper
+		.product__slider
+			include ../../components/slider-goods/slider-goods
+
+		//- .product__info
+		include product-info
+
+		//- .product__amount
+		include product-amount
+
+		.product__desc
+			.h3 Описание
+			p Очиститель монтажной пены используется для удаления загрязнений незатвердевшей однокомпонентной полиуретановой монтажной пены. Легко наносится на труднодоступные места. Экономичен в использовании. Перед применением на пластиковых и окрашенных поверхностях сделать предварительную пробу на невидимом участке поверхности!
+			ul
+				| Эффективно очищает:
+				li Внутренние и наружные части пистолетов для монтажной пены.
+				li Клапаны баллонов.
+				li Рабочие поверхности.
+				li Одежду.
+
+		.product__delivery
+			.h3 Доставка:
+			.delivery.radio
+				.delivery__item
+					label.delivery__item-label
+						input.v-hidden.radio-real(type='radio' name='delivery' checked)
+						span.radio-custom
+						| Пункт выдачи заказов 
+						span.delivery__item-checkpoint Москва, ул. Садовая, 571
+					.delivery__item-date 27.02.2025
+				.delivery__item
+					label.delivery__item-label
+						input.v-hidden.radio-real(type='radio' name='delivery')
+						span.radio-custom
+						| Курьером 
+						span.delivery__item-checkpoint Москва, ул. Солнечная, 127
+					.delivery__item-date 29.02.2025
+				.delivery__item
+					label.delivery__item-label
+						input.v-hidden.radio-real(type='radio' name='delivery')
+						span.radio-custom
+						| Постамат 
+						span.delivery__item-checkpoint Москва, ул. Ленина, 324
+					.delivery__item-date 08.03.2025
+
+

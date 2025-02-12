@@ -1,0 +1,51 @@
+@use "../base/mixins";
+
+.product {
+  &__wrapper {
+    display: grid;
+    grid-template-columns: 355px 1fr 270px;
+    grid-gap: 50px;
+    grid-template-areas:
+      "slider info amount"
+      "desc desc delivery";
+  }
+
+  &__slider {
+		grid-area: slider;
+  }
+
+  &__info {
+		grid-area: info;
+  }
+
+  &__amount {
+		grid-area: amount;
+  }
+
+  &__desc {
+		grid-area: desc;
+
+		.h3 {
+			margin-bottom: 10px;
+		}
+
+		p + ul {
+			margin-top: 5px;
+		}
+
+		ul,li {
+			list-style: inside;
+			list-style-type: disc;
+			&::marker {
+				content: inherit;
+				font-size: 6px;
+			}
+		}
+
+  }
+
+  &__delivery {
+		grid-area: delivery;
+  }
+
+}

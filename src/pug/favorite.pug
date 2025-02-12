@@ -1,0 +1,16 @@
+extends layout/aside 
+
+block variables
+	- var title = 'Избранное'
+	- var pageTitle = 'Избранное'
+
+block aside
+	include blocks/aside/aside-favorite
+
+block content		
+	include blocks/catalog/favorite-grid
+
+block adds
+	.container
+		include blocks/similar-products/select-for-you
+

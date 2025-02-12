@@ -87,7 +87,6 @@ input {
   font-family: inherit;
   font-size: inherit;
   line-height: 1;
-  cursor: pointer;
 }
 
 input:focus,
@@ -103,7 +102,7 @@ button::-moz-focus-inner {
   border: 0;
 }
 
-label {
+button {
   cursor: pointer;
 }
 
