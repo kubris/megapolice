@@ -1,27 +1,25 @@
 const gulp 			= require("gulp"),
 		pug					= require('gulp-pug'),
-		webpHTML 		= require('gulp-webp-html-nosvg'),
 		sass 				= require("gulp-sass")(require("sass")),
-		autoprefixer 	= require('gulp-autoprefixer'),
-		csso 				= require('gulp-csso'),
 		sassGlob 		= require("gulp-sass-glob"),
-		server 			= require("gulp-server-livereload"),
+		browserSync = require('browser-sync').create(),
 		clean 			= require("gulp-clean"),
 		fs 					= require("fs"),
-		groupMedia 	= require("gulp-group-css-media-queries"),
 		plumber 		= require("gulp-plumber"),
 		notify 			= require("gulp-notify"),
+		svgSprite 	= require("gulp-svg-sprite"),
+  	svgmin 			= require("gulp-svgmin"),
+		cheerio 		= require("gulp-cheerio"),
+  	replace 		= require("gulp-replace"),
+		autoprefixer 	= require('gulp-autoprefixer'),
+		csso 				= require('gulp-csso'),
+		groupMedia 	= require("gulp-group-css-media-queries"),
 		imagemin 		= require("gulp-imagemin"),
 		webp 				= require("gulp-webp");
 
 const webpack 	= require("webpack-stream");
 const babel 		= require("gulp-babel");
 
-// -- start server
-const startServerSettings = {
-	livereload: true,
-	open: true,
-};
 // -- plumber
 const plumberNotify = (title) => {
 	return {
@@ -33,48 +31,53 @@ const plumberNotify = (title) => {
 	};
 };
 
-// -- babel
+// === BABEL
 const babelSettings = {
 	presets: ["@babel/preset-env"]
 };
 
-// === clean docs ===
+// === start CLEAN ===
 gulp.task("clean:docs", function (callback) {
 	if (fs.existsSync("./docs/")) {
 		return gulp.src("./docs/", { read: false }).pipe(clean({ force: true }));
 	}
 	callback();
 });
+// === stop CLEAN ===
 
-// ////////////////////////
-// === PUG include  ===
+// === start PUG ===
 gulp.task('pug:docs', function(){
 	return gulp.src('./src/pug/*.pug')
 		.pipe(plumber(plumberNotify('PUG')))
 		.pipe(pug())
-		.pipe(webpHTML())
 		.pipe(gulp.dest('./docs'))
 });
-// end PUG include 
+// === stop PUG ===
 
-// === SCSS ===
+// === start SCSS ===
 gulp.task("sass:docs", function () {
 	return gulp
 		.src("./src/scss/*.scss")
 		.pipe(plumber(plumberNotify("SASS")))
-		.pipe(sassGlob())
-		.pipe(sass())
+		.pipe(
+      sass({
+        sass: require("sass"),
+        outputStyle: "expanded",
+        silenceDeprecations: ["legacy-js-api"],
+      }).on("error", sass.logError)
+    )
+		.pipe(sassGlob())		
 		.pipe(groupMedia())
-		.pipe(autoprefixer(['last 15 versions', '> 1%']))
-		.pipe(csso())
-		.pipe(gulp.dest("./docs/css/"));
+		.pipe(autoprefixer(['last 5 versions', '> 2%']))
+		//.pipe(csso())		//- минимизатор CSS.
+		.pipe(gulp.dest("./docs/css/"))
 });
-// end SCSS
+// === stop SCSS ===
 
-// === IMAGES ===
+// === start IMAGES ===
 gulp.task("images:docs", function () {
 	return gulp
-		.src("./src/images/**/*")
+	.src("./src/images/**/*.+(jpg|jpeg|png)")
 		.pipe(imagemin({ verbose: true }))
 		.pipe(gulp.dest("./docs/images/"));
 });
@@ -84,17 +87,14 @@ gulp.task("imagesWebp:docs", function () {
 		.pipe(webp())
 		.pipe(gulp.dest("./docs/images/"));
 });
-// end IMAGES
-
-// === FONTS ===
-gulp.task('fonts:docs', function(){
-	return gulp.src('./src/fonts/*.*')
-	.pipe(gulp.dest('./docs/fonts/'))
-	.pipe(gulp.dest('./docs/fonts/'))
+gulp.task("imageSvg:docs", function () {
+  return gulp
+    .src("./src/images/svg/*.svg")
+    .pipe(gulp.dest("./docs/images/svg"))
 });
-// === end FONTS ===
+// === stop IMAGES ===
 
-// === UPLOADS ===
+// === start UPLOADS ===
 gulp.task('uploads:docs', function(){
 	return gulp.src('./src/uploads/**/*')
 		.pipe(imagemin({ verbose: true }))
@@ -106,6 +106,49 @@ gulp.task('uploadsWebp:docs', function(){
 		.pipe(gulp.dest('./docs/uploads/'))
 });
 // === end UPLOADS ===
+
+// === start SVG SPRITE ===
+gulp.task("svgSprite:docs", function () {
+  return gulp
+    .src("./src/images/sprite/*.svg")
+    .pipe(
+      svgmin({
+        js2svg: {
+          pretty: true,
+        },
+      })
+    )
+    .pipe(
+      cheerio({
+        run: function ($) {
+          $("[fill]").removeAttr("fill");
+          $("[stroke]").removeAttr("stroke");
+          $("[style]").removeAttr("style");
+        },
+        parserOptions: { xmlMode: true },
+      })
+    )
+    .pipe(replace("&gt;", ">"))
+    .pipe(
+      svgSprite({
+        mode: {
+          stack: {
+            sprite: "../sprite.svg",
+            example: true,
+          },
+        },
+      })
+    )
+    .pipe(gulp.dest("./docs/images/sprite/"))
+});
+// === stop SVG SPRITE ===
+
+// === FONTS ===
+gulp.task('fonts:docs', function(){
+	return gulp.src('./src/fonts/*.*')
+	.pipe(gulp.dest('./docs/fonts/'))
+});
+// === end FONTS ===
 
 // === ROOT FOLDER files ===
 gulp.task('root:docs', function(){
@@ -121,13 +164,21 @@ gulp.task("js:docs", function () {
 		.pipe(plumber(plumberNotify("JS")))
 		.pipe(babel(babelSettings))
 		.pipe(webpack(require("./../webpack.config.js")))
-		.pipe(gulp.dest("./docs/js/"));
+		.pipe(gulp.dest("./docs/js/"))
 });
 // === end JS ===
 
-// === START Server ===
+// === start JS Vendore ===
+gulp.task("jsVendor:docs", function () {
+  return gulp
+    .src("./src/js/vendor/*.js")
+    .pipe(plumber(plumberNotify("JS Vendor")))
+    .pipe(gulp.dest("./docs/js/vendor/"))
+});
+// === stop JS Vendore ===
+
+// === start WATCH ===
 gulp.task("server:docs", function () {
 	return gulp.src("./docs/").pipe(server(startServerSettings));
 });
-// end START Server
-
+// === stop WATCH ===

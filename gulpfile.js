@@ -4,7 +4,7 @@ const gulp 	= require('gulp');
 require('./gulp/dev.js');
 require('./gulp/docs.js');
 
-// === GULP RUN ===
+// ===  RUN ===
 // gulp
 gulp.task('default', 
 	gulp.series('clean:dev', 
@@ -15,15 +15,18 @@ gulp.task('default',
 	'fonts:dev', 
 	'js:dev', 'jsVendor:dev',
 	'root:dev'),
-	//gulp.parallel('server:dev', 'watch:dev')
 	gulp.parallel( 'watch:dev')
 ));
 
 // gulp docs
-gulp.task(
-	'docs', 
+gulp.task('docs', 
 	gulp.series('clean:docs', 
-		gulp.parallel('pug:docs', 'sass:docs', 'imagesWebp:docs', 'images:docs', 'fonts:docs', 'uploadsWebp:docs', 'uploads:docs', 'js:docs', 'root:docs'),
-		gulp.parallel('server:docs')
+	gulp.parallel('pug:docs', 'sass:docs', 
+	'images:docs', 'imagesWebp:docs', 
+	'uploads:docs', 'uploadsWebp:docs',
+	'svgSprite:docs', 'imageSvg:docs',
+	'fonts:docs', 
+	'js:docs', 'jsVendor:docs',
+	'root:docs'),
 ));
 // === end GULP RUN ===

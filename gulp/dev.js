@@ -2,7 +2,6 @@ const gulp = require("gulp"),
   pug = require("gulp-pug"),
   sass = require("gulp-sass")(require("sass")),
   sassGlob = require("gulp-sass-glob"),
-  //server = require("gulp-server-livereload"),
 	browserSync = require('browser-sync').create(),
   clean = require("gulp-clean"),
   fs = require("fs"),
@@ -22,12 +21,6 @@ const babel = require("gulp-babel");
 
 // === stop VARIABLES ===
 
-// === SERVER
-// const startServerSettings = {
-//   livereload: true,
-//   open: true,
-// };
-
 // === PLUMBER
 const plumberNotify = (title) => {
   return {
@@ -43,8 +36,6 @@ const plumberNotify = (title) => {
 const babelSettings = {
   presets: ["@babel/preset-env"],
 };
-
-// === stop VARIABLES ===
 
 // === start CLEAN ===
 gulp.task("clean:dev", function (callback) {
@@ -66,7 +57,7 @@ gulp.task("pug:dev", function () {
       })
     )
     .pipe(gulp.dest("./build"))
-		.pipe(browserSync.stream());
+		.pipe(browserSync.stream())
 });
 // === stop PUG ===
 
@@ -86,7 +77,7 @@ gulp.task("sass:dev", function () {
     .pipe(sassGlob())
     .pipe(sourceMaps.write("."))
     .pipe(gulp.dest("./build/css/"))
-		.pipe(browserSync.stream());
+		.pipe(browserSync.stream())
 });
 // === stop SCSS ===
 
@@ -97,7 +88,7 @@ gulp.task("images:dev", function () {
     .pipe(changed("./build/images/"))
     .pipe(imagemin({ verbose: true }))
     .pipe(gulp.dest("./build/images/"))
-		.pipe(browserSync.stream());
+		.pipe(browserSync.stream())
 });
 gulp.task("imagesWebp:dev", function () {
   return gulp
@@ -166,7 +157,7 @@ gulp.task("svgSprite:dev", function () {
       })
     )
     .pipe(gulp.dest("./build/images/sprite/"))
-		.pipe(browserSync.stream());
+		.pipe(browserSync.stream())
 });
 // === stop SVG SPRITE ===
 
@@ -176,8 +167,6 @@ gulp.task("fonts:dev", function () {
     gulp
       .src("./src/fonts/*.*")
       .pipe(gulp.dest("./build/fonts/"))
-      .pipe(gulp.dest("./build/fonts/"))
-			.pipe(browserSync.stream())
   );
 });
 // === stop FONTS ===
@@ -200,7 +189,7 @@ gulp.task("js:dev", function () {
     .pipe(babel(babelSettings))
     .pipe(webpack(require("./../webpack.config.js")))
     .pipe(gulp.dest("./build/js/"))
-		.pipe(browserSync.stream());
+		.pipe(browserSync.stream())
 });
 // === stop JS ===
 // === start JS Vendore ===
@@ -208,31 +197,11 @@ gulp.task("jsVendor:dev", function () {
   return gulp
     .src("./src/js/vendor/*.js")
     .pipe(plumber(plumberNotify("JS Vendor")))
-    .pipe(gulp.dest("./build/js/vendor/"));
+    .pipe(gulp.dest("./build/js/vendor/"))
 });
 // === stop JS Vendore ===
 
-// === start SERVER ===
-// gulp.task("server:dev", function () {
-//   return gulp.src("./build/").pipe(server(startServerSettings));
-// });
-// === stop SERVER ===
-
 // === start WATCH ===
-// gulp.task("watch:dev", function () {
-//   gulp.watch("./src/pug/**/*.pug", gulp.parallel("pug:dev"));
-//   gulp.watch("./src/scss/**/*.scss", gulp.parallel("sass:dev"));
-//   gulp.watch("./src/js/**/*.js", gulp.parallel("js:dev", "jsVendor:dev"));
-//   gulp.watch("./src/fonts/**/*", gulp.parallel("fonts:dev"));
-//   gulp.watch("./src/images/svg/**/*", gulp.parallel("imageSvg:dev"));
-//   gulp.watch("./src/images/sprite/**/*", gulp.parallel("svgSprite:dev"));
-//   gulp.watch("./src/images/**/*.+(jpg|jpeg|png)", gulp.parallel("images:dev", "imagesWebp:dev"));
-//   gulp.watch("./src/uploads/**/*.+(jpg|jpeg|png)", gulp.parallel("uploads:dev", "uploadsWebp:dev"));
-//   gulp.watch("./src/*.+(ico|php|htaccess|txt)", gulp.parallel("root:dev"));
-// });
-
-
-//const watcher = () => {
 gulp.task("watch:dev", function () {
   browserSync.init({
     server: {
