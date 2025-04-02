@@ -49,7 +49,12 @@ gulp.task("clean:docs", function (callback) {
 gulp.task('pug:docs', function(){
 	return gulp.src('./src/pug/*.pug')
 		.pipe(plumber(plumberNotify('PUG')))
-		.pipe(pug())
+		//.pipe(pug())
+		.pipe(
+      pug({
+        pretty: true,
+      })
+    )
 		.pipe(gulp.dest('./docs'))
 });
 // === stop PUG ===

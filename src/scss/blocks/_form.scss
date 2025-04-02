@@ -9,6 +9,11 @@
     display: grid;
     grid-template-columns: 278px 525px auto;
     grid-gap: 60px;
+
+		@include mixins.mw1024 {
+			grid-template-columns: 1fr;
+			grid-gap: 30px;
+		}
   }
 
   &__info {
@@ -18,6 +23,10 @@
     color: #fff;
     font-size: 11px;
     font-weight: 600;
+
+		@include mixins.mw1024 {
+			order: 1;
+		}
 
     &-title {
       margin-bottom: 30px;
@@ -107,6 +116,10 @@
     img {
       aspect-ratio: 204 / 159;
     }
+
+		@include mixins.mw1024 {
+			display: none;
+		}
   }
 
   &__filter {
@@ -114,6 +127,10 @@
     padding: 15px;
     border-radius: 10px;
     border: 1px solid var(--gray-light);
+
+		@include mixins.mw768 {
+			margin-bottom: 0;
+		}
   }
 
   &__interval {

@@ -25,6 +25,9 @@ header.main-header
 							use(xlink:href='#loupe')
 						input.header-search__text(type="text" placeholder="Поиск по каталогу")
 						input.header-search__submit.v-hidden(type="submit")
+					.burger-icon
+						button#burger
+							span
 				.main-header__bottom
 					a.btn.btn--accent.main-header__catalog-btn(href="catalog.html")
 						svg.btn-icon
@@ -55,3 +58,48 @@ header.main-header
 							svg.btns-block__img
 								use(xlink:href='#auth')
 							| Авторизация
+	.mobile-menu
+		.container
+			.main-header__btns-block.btns-block
+				a.btns-block__link(href="orders.html")
+					svg.btns-block__img
+						use(xlink:href='#orders')
+					| Заказы
+				a.btns-block__link.btns-block__cart(href="cart.html")
+					svg.btns-block__img
+						use(xlink:href='#cart')
+					span.btns-block__cart-amount 0
+					| Корзина
+				a.btns-block__link(href="login.html")
+					svg.btns-block__img
+						use(xlink:href='#auth')
+					| Авторизация
+			form.header-search
+				svg.header-search__img
+					use(xlink:href='#loupe')
+				input.header-search__text(type="text" placeholder="Поиск по каталогу")
+				input.header-search__submit.v-hidden(type="submit")
+			ul.nav__list
+				li.nav__item
+					a.nav__link(href="contacts.html") Контакты
+				li.nav__item
+					a.nav__link(href="products.html") Изделия
+				li.nav__item
+					a.nav__link(href="documents.html") Документы
+				li.nav__item
+					a.nav__link(href="brands.html") Бренды
+			div.mm-row
+				a.btn.btn--accent.main-header__catalog-btn(href="catalog.html")
+					svg.btn-icon
+						use(xlink:href='#mobnav')
+					| Каталог
+				button.btn.btn--white.main-header__callback-btn.jsOpenModal Обратный звонок
+				ul.header-socials
+					li
+						a.header-socials__link(href="https://t.me/telegram")
+							svg.header-socials__img
+								use(xlink:href='#i-tg')
+					li
+						a.header-socials__link(href="https://wa.me/whatsapp")
+							svg.header-socials__img
+								use(xlink:href='#i-whs')

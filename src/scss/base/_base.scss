@@ -11,7 +11,7 @@ body {
 
   font-family: var(--font-main);
   font-weight: 400;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   color: var(--dark);
   line-height: 1.2;
 
@@ -32,6 +32,11 @@ body {
   display: grid;
   grid-template-columns: 224px 1fr;
   grid-gap: 20px;
+
+	@include mixins.mw768 {
+		grid-template-columns: 1fr;
+		grid-gap: 10px;
+	}
 }
 
 body::-webkit-scrollbar {

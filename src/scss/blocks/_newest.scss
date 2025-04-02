@@ -5,8 +5,12 @@
 
 	&__grid {
 		display: grid;
-		grid-template-columns: repeat(auto-fill, minmax(185px, 1fr));
+		grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
 		gap: 20px;
+
+		@include mixins.mw768 {
+			grid-template-columns: repeat(auto-fill, minmax(185px, 1fr));
+		}
 
 		&-card {
 			padding: 7px;

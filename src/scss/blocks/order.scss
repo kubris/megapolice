@@ -4,13 +4,18 @@
   &__wrapper {
     position: relative;
     min-height: 310px;
-		max-height: 310px;
-		transition: max-height 0.6s ease-out;
+    max-height: 310px;
+    transition: max-height 0.6s ease-out;
     overflow: hidden;
 
-		&.show {
-			max-height: 100%;
+		@include mixins.mw1024 {
+			max-height: unset;
+			overflow: unset;
 		}
+
+    &.show {
+      max-height: 100%;
+    }
   }
 
   &__grid {
@@ -18,6 +23,9 @@
     grid-template-columns: 1fr 1.5fr;
     align-items: flex-start;
     grid-gap: 20px;
+		@include mixins.mw1024 {
+			grid-template-columns: 1fr;
+		}
 
     .cart-goods__item {
       align-items: stretch;
@@ -50,10 +58,17 @@
 
     position: absolute;
     bottom: 25px;
-    left: 490px;
+    left: 575px;
     font-size: 11px;
     font-weight: 600;
     color: var(--details-color);
+
+    @include mixins.mw1440 {
+      left: 490px;
+    }
+    @include mixins.mw1024 {
+      display: none;
+    }
 
     svg {
       stroke: var(--details-color);

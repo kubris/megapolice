@@ -45,5 +45,36 @@
 	&-item:hover {
 		background-color: #f9f9f9;
 	}
+}
 
+#aside__filter-block {
+	transition: max-height 0.3s ease-in-out;
+}
+
+#aside__filter-btn {
+	display: none;
+
+	@include mixins.mw768 {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 35px;
+		width: 100%;
+
+		& + #aside__filter-block {
+			max-height: 0;
+			overflow: hidden;
+		}
+	}	
+
+	&.show {
+		& + #aside__filter-block {
+			max-height: 100%;
+		}
+	}
+}
+
+.aside__filter-icon {
+	width: 9px;
+	height: 4px;
 }

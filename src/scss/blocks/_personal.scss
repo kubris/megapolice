@@ -6,6 +6,10 @@
     grid-template-columns: 1fr 1.5fr;
     align-items: flex-start;
     grid-gap: 20px;
+
+		@include mixins.mw1024 {
+      grid-template-columns: 1fr;
+    }
   }
 
   &__buttons {

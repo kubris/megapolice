@@ -3,9 +3,26 @@
 .main-header {
 	padding: 20px 0;
 	box-shadow: 0 4px 17px RGBA(0, 0, 0, 10%);
+	position: relative;
+	z-index: 2;
 	
 	&__row {
 		display: flex;
+		@include mixins.mw1024 {
+			justify-content: space-between;
+			align-items: center;
+
+			.info {
+				margin-left: auto;
+				max-width: 160px;
+			}
+		}
+		@include mixins.mw380 {
+			flex-wrap: wrap;
+			.info {
+				margin-left: unset;
+			}
+		}
 	}
 
 	&__logo {
@@ -14,6 +31,10 @@
 		position: relative;
 		display: flex;
 		align-items: center;
+		
+		@include mixins.mw1200 {
+			margin-right: 0;
+		}
 
 		&::after {
 			content: '';
@@ -23,6 +44,10 @@
 			bottom: 0;
 			width: 2px;
 			background-color: var(--gray-light);
+
+			@include mixins.mw1024 {
+				content: unset;
+			}
 		}
 	}
 
@@ -34,17 +59,54 @@
 		display: flex;
 		flex-direction: column;
 		gap: 15px;
+
+		@include mixins.mw1024 {
+			margin: 0;
+			padding: 0;
+		}
 	}
 
 	&__top {
 		display: flex;
 		align-items: center;
 		gap: 10px;
+
+		.burger-icon {
+			display: none;
+			align-items: center;
+			justify-content: center;
+			width: 35px;
+			height: 35px;
+		}
+
+		@include mixins.mw1024 {
+			gap: 25px;
+
+			.header-socials,
+			.header-search {
+				display: none;
+			}
+
+			.burger-icon {display: flex;}
+		}
+		@include mixins.mw380 {
+			justify-content: space-between;
+			flex-wrap: wrap;
+			gap: 5px;
+		}
 	}
 	&__bottom {
 		display: flex;
 		align-items: center;
 		gap: 10px;
+
+		@include mixins.mw1200 {
+			justify-content: space-between;
+			gap: 20px;
+		}
+		@include mixins.mw1024 {
+			display: none;
+		}
 	}
 
 	&__catalog-btn {
@@ -52,9 +114,59 @@
 		height: 40px;
 		font-size: 13px;
 		font-weight: 700;
+		@include mixins.mw1200 {
+			margin-right: 0;
+		}
 	}
 
 	&__callback-btn {
 		margin-right: 65px;
+		@include mixins.mw1200 {
+			margin-right: 0;
+		}
 	}
+}
+
+.mobile-menu {
+	position: absolute;
+	left: 0;
+	right: 0;
+	z-index: 1;
+
+	margin-top: 10px;
+	padding: 10px 0;
+
+	border-top: 1px solid var(--gray);
+	transition: transform 0.3s ease-in-out;
+	transform: translateY(-1000px);
+	background-color: var(--white);
+	
+
+	.header-search {
+		margin-bottom: 10px;
+	}
+
+	.main-header__btns-block,
+	.nav__list {
+		margin-bottom: 15px;
+	}
+
+	.header-socials {
+		width: auto;
+	}
+	.btn.btn--white,
+	.btn.btn--accent {
+		height: 30px;
+	}
+
+	&.show {		
+		transform: translateY(0%);
+	}
+}
+
+.mm-row {
+	display: flex;
+	justify-content: space-between;
+	gap: 10px;
+	flex-wrap: wrap;
 }

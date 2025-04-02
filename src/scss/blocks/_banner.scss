@@ -37,10 +37,19 @@
 	}
 
 	&__title {
-		font-size: 15px;
+		font-size: clamp(8px, 2.5vw, 15px);
 	}
 
 	&__text {
-		font-size: 11px;
+		font-size: clamp(8px, 2.5vw, 11px);
+	}
+
+	&__img {
+		@include mixins.mw1024 {
+			img {
+				height: 100%;
+				object-fit: cover;
+			}
+    }
 	}
 }

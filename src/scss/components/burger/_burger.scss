@@ -2,15 +2,15 @@
 
 #burger {
   display: none;
-
-  padding: 0 5px;
+	padding: 0 4px;
+	width: 26px;
+	height: 22px;
+	border: none;
 
   position: relative;
   z-index: 1;
 
   width: 100%;
-  max-width: 40px;
-  height: 30px;
 
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -25,19 +25,7 @@
     display: flex;
   }
 
-  &:hover {
-    & > span::before {
-      top: -9px;
-    }
-
-    & > span::after {
-      top: 9px;
-    }
-  }
-
   &:active {
-    max-width: 36px;
-		padding-right: 7px;
 		& > span::before {
       top: -7px;
     }
@@ -50,10 +38,10 @@
   & > span {
     position: relative;
     display: block;
-    height: 2px;
+    height: 3px;
     width: 100%;
-    border-radius: 2px;
-    background-color: var(--gray-dark);
+    border-radius: 3px;
+    background-color: var(--details-color);
     -webkit-transition: all ease 0.1s;
     transition: all ease 0.1s;
   }
@@ -64,9 +52,9 @@
     position: absolute;
     left: 0;
     display: block;
-    height: 2px;
+    height: 3px;
     width: 100%;
-    background: var(--gray-dark);
+    background: var(--details-color);
     -webkit-transition: all 0.2s ease-out;
     transition: all 0.1s ease-out;
     border-radius: 2px;

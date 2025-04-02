@@ -8,44 +8,62 @@
     grid-template-areas:
       "slider info amount"
       "desc desc delivery";
+
+    @include mixins.mw1024 {
+      grid-template-columns: 1fr 270px;
+      grid-gap: 25px;
+      grid-template-areas:
+        "slider amount"
+        "desc desc"
+				"info delivery";
+    }
+    @include mixins.mw768 {
+      grid-template-columns: 1fr;
+      grid-gap: 25px;
+      grid-template-areas:
+        "slider"
+        "amount"
+				"info"
+        "desc"
+				"delivery";
+    }
   }
 
   &__slider {
-		grid-area: slider;
+    grid-area: slider;
   }
 
   &__info {
-		grid-area: info;
+    grid-area: info;
   }
 
   &__amount {
-		grid-area: amount;
+    grid-area: amount;
   }
 
   &__desc {
-		grid-area: desc;
+    grid-area: desc;
 
-		.h3 {
-			margin-bottom: 10px;
-		}
+    .h3 {
+      margin-bottom: 10px;
+    }
 
-		p + ul {
-			margin-top: 5px;
-		}
+    p + ul {
+      margin-top: 5px;
+    }
 
-		ul,li {
-			list-style: inside;
-			list-style-type: disc;
-			&::marker {
-				content: inherit;
-				font-size: 6px;
-			}
-		}
-
+    ul,
+    li {
+      list-style: inside;
+      list-style-type: disc;
+      &::marker {
+        content: inherit;
+        font-size: 6px;
+      }
+    }
   }
 
   &__delivery {
-		grid-area: delivery;
+    grid-area: delivery;
   }
-
 }

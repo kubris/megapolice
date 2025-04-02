@@ -9,7 +9,7 @@ initSwipers();
 initShowMore();
 initModalCallback();
 
-// === start TOGGLE SCROLL === !!!!!!!!!!!!!!! DELETE ---------
+// === start TOGGLE SCROLL ===
 let disableScroll = function () {
   let paddingOffset = window.innerWidth - document.body.offsetWidth + "px";
   document.body.classList.add("no-scroll");
@@ -21,6 +21,7 @@ let enableScroll = function () {
   document.body.style.paddingRight = 0;
 };
 // === end TOGGLE SCROLL
+
 
 /* === start DROPDOWN fields ==== */
 if (document.querySelector(".drop")) {
@@ -282,7 +283,6 @@ if (swThumbs && swImages) {
   });
 
   const sliderImages = new Swiper(".slider__images .swiper-container", {
-    direction: "vertical",
     slidesPerView: 1,
     spaceBetween: 10,
     mousewheel: true,
@@ -393,18 +393,22 @@ if (tSl) {
 // === end TESTIMONIALS SLIDER
 
 // === start CART ITEM - CALCULATE
-// -- Скрипт не учитывает динамического добавления элементов, только переход в корзину с уже готовым набором товаров. 
+// -- Скрипт не учитывает динамического добавления элементов, только переход в корзину с уже готовым набором товаров.
 // -- При удалении товара из корзины всё работает хорошо.
-document.addEventListener('DOMContentLoaded', () => {
-  const priceElements = document.querySelectorAll('.cart-goods__price');
+document.addEventListener("DOMContentLoaded", () => {
+  const priceElements = document.querySelectorAll(".cart-goods__price");
 
   if (priceElements.length > 0) {
-    const carts = document.querySelectorAll('.quantity__cart');
+    const carts = document.querySelectorAll(".quantity__cart");
 
-    carts.forEach(cart => {
-      const quantityField = cart.querySelector('.quantity__field');
-      const priceElement = cart.closest('.cart-goods__info').querySelector('.cart-goods__price');
-      const basePrice = parseFloat(priceElement.textContent.replace(/[^\d.-]/g, ''));
+    carts.forEach((cart) => {
+      const quantityField = cart.querySelector(".quantity__field");
+      const priceElement = cart
+        .closest(".cart-goods__info")
+        .querySelector(".cart-goods__price");
+      const basePrice = parseFloat(
+        priceElement.textContent.replace(/[^\d.-]/g, "")
+      );
 
       function updatePrice() {
         const quantity = parseInt(quantityField.value, 10);
@@ -431,32 +435,36 @@ document.addEventListener('DOMContentLoaded', () => {
       let interval;
       let timeout;
 
-      cart.querySelector('.quantity__minus').addEventListener('mousedown', () => {
-        isButtonPressed = true;
-        changeQuantity(-1);
-        timeout = setTimeout(() => {
-          interval = setInterval(() => {
-            if (isButtonPressed) changeQuantity(-1);
-          }, 100);
-        }, 500);
-      });
+      cart
+        .querySelector(".quantity__minus")
+        .addEventListener("mousedown", () => {
+          isButtonPressed = true;
+          changeQuantity(-1);
+          timeout = setTimeout(() => {
+            interval = setInterval(() => {
+              if (isButtonPressed) changeQuantity(-1);
+            }, 100);
+          }, 500);
+        });
 
-      cart.querySelector('.quantity__plus').addEventListener('mousedown', () => {
-        isButtonPressed = true;
-        changeQuantity(1);
-        timeout = setTimeout(() => {
-          interval = setInterval(() => {
-            if (isButtonPressed) changeQuantity(1);
-          }, 100);
-        }, 500);
-      });
+      cart
+        .querySelector(".quantity__plus")
+        .addEventListener("mousedown", () => {
+          isButtonPressed = true;
+          changeQuantity(1);
+          timeout = setTimeout(() => {
+            interval = setInterval(() => {
+              if (isButtonPressed) changeQuantity(1);
+            }, 100);
+          }, 500);
+        });
 
-      document.addEventListener('mouseup', () => {
+      document.addEventListener("mouseup", () => {
         isButtonPressed = false;
         clearInterval(interval);
         clearTimeout(timeout);
       });
-      document.addEventListener('mouseleave', () => {
+      document.addEventListener("mouseleave", () => {
         isButtonPressed = false;
         clearInterval(interval);
         clearTimeout(timeout);
@@ -471,71 +479,85 @@ document.addEventListener('DOMContentLoaded', () => {
 // === start SHOW BYTTON - ORDER
 const showMore = document.querySelectorAll(".jsShowBtn");
 if (showMore.length > 0) {
-	showMore.forEach((sm) => {
-		sm.addEventListener("click", (e) => {
-			e.currentTarget.parentElement.classList.toggle("show");
-			e.currentTarget.classList.toggle("show");
-		});
-	});
+  showMore.forEach((sm) => {
+    sm.addEventListener("click", (e) => {
+      e.currentTarget.parentElement.classList.toggle("show");
+      e.currentTarget.classList.toggle("show");
+    });
+  });
 }
 // === end SHOW BYTTON - ORDER
 
 // === start TABS - LK
 const TabManager = {
-	fadeIn(el, timeout, display = "block") {
-			el.style.opacity = 0;
-			el.style.display = display;
-			el.style.transition = `opacity ${timeout}ms`;
-			setTimeout(() => { el.style.opacity = 1; }, 10);
-	},
+  fadeIn(el, timeout, display = "block") {
+    el.style.opacity = 0;
+    el.style.display = display;
+    el.style.transition = `opacity ${timeout}ms`;
+    setTimeout(() => {
+      el.style.opacity = 1;
+    }, 10);
+  },
 
-	fadeOut(el, timeout) {
-			el.style.opacity = 1;
-			el.style.transition = `opacity ${timeout}ms`;
-			el.style.opacity = 0;
-			setTimeout(() => { el.style.display = "none"; }, timeout);
-	},
+  fadeOut(el, timeout) {
+    el.style.opacity = 1;
+    el.style.transition = `opacity ${timeout}ms`;
+    el.style.opacity = 0;
+    setTimeout(() => {
+      el.style.display = "none";
+    }, timeout);
+  },
 
-	hideAll(els) {
-			els.forEach(item => item.style.display = "none");
-	},
+  hideAll(els) {
+    els.forEach((item) => (item.style.display = "none"));
+  },
 
-	delAllActiveBtns(els) {
-			els.forEach(item => item.classList.remove("active"));
-	},
+  delAllActiveBtns(els) {
+    els.forEach((item) => item.classList.remove("active"));
+  },
 
-	init(btnClass, blockClass) {
-			const btns = document.querySelectorAll(btnClass);
-			const blocks = document.querySelectorAll(blockClass);
-			
-			if (btns.length && blocks.length) {
-					this.hideAll(blocks);
-					blocks[0].style.display = "block";
+  init(btnClass, blockClass) {
+    const btns = document.querySelectorAll(btnClass);
+    const blocks = document.querySelectorAll(blockClass);
 
-					btns.forEach(btn => {
-							btn.addEventListener("click", (e) => {
-									const currBlock = document.querySelector(`[data-cnt="${e.currentTarget.dataset.tb}"]`);
+    if (btns.length && blocks.length) {
+      this.hideAll(blocks);
+      blocks[0].style.display = "block";
 
-									this.delAllActiveBtns(btns);
-									e.currentTarget.classList.add("active");
-									this.hideAll(blocks);
+      btns.forEach((btn) => {
+        btn.addEventListener("click", (e) => {
+          const currBlock = document.querySelector(
+            `[data-cnt="${e.currentTarget.dataset.tb}"]`
+          );
 
-									if (currBlock) {
-											this.fadeIn(currBlock, 1000);
-									}
-							});
-					});
-			} else {
-					console.error("No buttons or no blocks found!");
-			}
-	}
+          this.delAllActiveBtns(btns);
+          e.currentTarget.classList.add("active");
+          this.hideAll(blocks);
+
+          if (currBlock) {
+            this.fadeIn(currBlock, 1000);
+          }
+        });
+      });
+    } else {
+      console.error("No buttons or no blocks found!");
+    }
+  },
 };
 
-if(document.querySelector('.tabBtn') && document.querySelector('.tabData')) {
-	document.addEventListener("DOMContentLoaded", () => TabManager.init('.tabBtn', '.tabData'));
+if (document.querySelector(".tabBtn") && document.querySelector(".tabData")) {
+  document.addEventListener("DOMContentLoaded", () =>
+    TabManager.init(".tabBtn", ".tabData")
+  );
 }
 // === end TABS - LK
 
-// === start CUSTOM SELECT - CALCULATOR
-
-// === end CUSTOM SELECT - CALCULATOR
+// === start FILTER ASIDE DROP
+const afb = document.querySelector('#aside__filter-btn');
+if(afb) {
+	afb.addEventListener('click', (e) => {
+		e.preventDefault();
+		e.currentTarget.classList.toggle('show');
+	});
+}
+// === end FILTER ASIDE DROP

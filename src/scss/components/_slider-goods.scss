@@ -95,7 +95,7 @@
 
 @media (max-width: 575px) {
   .slider {
-    width: auto;
+		width: calc(100vw - 40px);
 
     &__flex {
       position: relative;

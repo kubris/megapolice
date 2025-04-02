@@ -39,6 +39,7 @@
 		background-image: linear-gradient(90deg, #A745D4 0%, #0A50D1 90%);
 		background-size: 300% auto;
 		background-position: 0 0;
+		flex-shrink: 0;
 
 		&:hover {
 			background-position: 100% 0;

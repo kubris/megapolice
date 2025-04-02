@@ -1,3 +1,5 @@
+@use '../base/mixins';
+
 .tabBtnBlock {
   display: flex;
   flex-direction: column;
@@ -64,6 +66,7 @@
     border: 1px solid var(--gray-light);
     color: #000;
     font-size: 11px;
+		width: 100%;
   }
 
   &__form {
@@ -82,6 +85,15 @@
       display: grid;
       grid-template-columns: 1fr 175px 85px 85px;
       grid-gap: 5px;
+
+			@include mixins.mw1024 {
+				grid-template-columns: 2fr 1fr 1fr;
+				label {
+					&:nth-of-type(1) {
+						grid-area: 1/1/2/4;
+					}
+				}
+			}
     }
   }
 
@@ -111,7 +123,7 @@
     border-radius: 7px;
     border: 1px solid var(--gray-light);
     box-shadow: var(--box-shadow-light);
-    max-width: 225px;
+    max-width: clamp(185px, 40%, 225px);
     width: 100%;
   }
 
@@ -196,6 +208,7 @@
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
+			flex-wrap: wrap;
     }
 
     &-delive {

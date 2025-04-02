@@ -11,6 +11,11 @@
     align-items: flex-start;
     grid-gap: 20px;
 
+    @include mixins.mw1024 {
+      grid-template-columns: 1fr;
+      align-items: stretch;
+    }
+
     &-goods {
       display: flex;
       flex-direction: column;
@@ -92,31 +97,31 @@
   gap: 10px;
 
   &__promo {
-		display: flex;
-		align-items: center;
-		gap: 30px;
-		width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    width: 100%;
 
     input {
       height: 30px;
-			padding: 5px 15px;
+      padding: 5px 15px;
       border-radius: 10px;
       border: 1px solid var(--gray-light);
       width: 100%;
-    }		
+    }
   }
-	.btn {
-		height: 30px;
-		max-width: 145px;
-		width: 100%;
-		font-weight: 600;
-		border-radius: 10px;
-	}
+  .btn {
+    height: 30px;
+    max-width: 145px;
+    width: 100%;
+    font-weight: 600;
+    border-radius: 10px;
+  }
 }
 
 .delive__submit {
-	margin-top: -10px;
-	height: 30px;
-	font-weight: 600;
-	border-radius: 10px;
+  margin-top: -10px;
+  height: 30px;
+  font-weight: 600;
+  border-radius: 10px;
 }

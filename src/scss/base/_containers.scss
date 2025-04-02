@@ -2,16 +2,15 @@
 
 .container {
 	margin: 0 auto;
-	max-width: 1200px;
+	padding: 0 var(--container-padding);
+	max-width: 1440px;
 	width: 100%;
 
+	@include mixins.mw1440 {max-width: 1200px;}
 	@include mixins.mw1200 {max-width: 1024px;}
-	@include mixins.mw1024 {max-width: 992px;}
-	@include mixins.mw992 {max-width: 768px;}
-	@include mixins.mw768 {max-width: 575px;}
-	@include mixins.mw575 {
-		max-width: unset;
-		padding: 0 var(--container-padding);
+	@include mixins.mw1024 {max-width: 768px;}
+	@include mixins.mw768 {
+		max-width: unset;		
 	}
 }
 

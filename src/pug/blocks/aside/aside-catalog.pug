@@ -1,165 +1,170 @@
-.dropdown-block
-	.dropdown
-		.dropdown-header
-			span Монтажная пена и очистители пен и герметиков
-			svg.drop__uparrow
-				use(xlink:href='#arrow-down')
-		.dropdown-list
-			a.dropdown-item(href='#') Монтажная пена и очистители пен и герметиков
-			a.dropdown-item(href='#') Монтажная пена и очистители пен и герметиков 2
-			a.dropdown-item(href='#') Монтажная пена и очистители пен и герметиков 3
-	.dropdown
-		.dropdown-header
-			span Отделочные материалы
-			svg.drop__uparrow
-				use(xlink:href='#arrow-down')
-		.dropdown-list
-			a.dropdown-item(href='#') Отделочные материалы
-			a.dropdown-item(href='#') Отделочные материалы 2
-			a.dropdown-item(href='#') Отделочные материалы 3
-	.dropdown
-		.dropdown-header
-			span Крепеж, Анкерные пластины, Дюбеля
-			svg.drop__uparrow
-				use(xlink:href='#arrow-down')
-		.dropdown-list
-			a.dropdown-item(href='#') Крепеж, Анкерные пластины, Дюбеля
-			a.dropdown-item(href='#') Крепеж, Анкерные пластины, Дюбеля 2
-			a.dropdown-item(href='#') Крепеж, Анкерные пластины, Дюбеля 3
-	.dropdown
-		.dropdown-header
-			span Сэндвич и ПВХ панели
-			svg.drop__uparrow
-				use(xlink:href='#arrow-down')
-		.dropdown-list
-			a.dropdown-item(href='#') Сэндвич и ПВХ панели
-			a.dropdown-item(href='#') Сэндвич и ПВХ панели 2
-			a.dropdown-item(href='#') Сэндвич и ПВХ панели 3
-	.dropdown
-		.dropdown-header
-			span Отливы, Козырьки, Металл в рулонах, Штрипс
-			svg.drop__uparrow
-				use(xlink:href='#arrow-down')
-		.dropdown-list
-			a.dropdown-item(href='#') Отливы, Козырьки, Металл в рулонах, Штрипс
-			a.dropdown-item(href='#') Отливы, Козырьки, Металл в рулонах, Штрипс 2
-			a.dropdown-item(href='#') Отливы, Козырьки, Металл в рулонах, Штрипс 3
-
-form.form__filter
-	.checkbox
-		label
-			input.checkbox-real(type='checkbox' checked='')
-			span.checkbox-custom
-			| В наличии
-		label
-			input.checkbox-real(type='checkbox')
-			span.checkbox-custom
-			| Под заказ: сегодня
-		label
-			input.checkbox-real(type='checkbox')
-			span.checkbox-custom
-			| Под заказ: завтра
-		label
-			input.checkbox-real(type='checkbox')
-			span.checkbox-custom
-			| Под заказ: позже
-		label
-			input.checkbox-real(type='checkbox')
-			span.checkbox-custom
-			| Отсутствующие в продаже
-	.checkbox
-		label
-			input.checkbox-real(type='checkbox')
-			span.checkbox-custom
-			| Рейтинг 4 и выше 
-			span.c-light (51)
-	.checkbox
-		label
-			input.checkbox-real(type='checkbox')
-			span.checkbox-custom
-			| Есть обзор 
-			span.c-light (51)
-
-	.form__interval
-		.form__interval-title
-			button(type="button").form__interval-btn.jsIntShow
+button#aside__filter-btn.btn.btn--white.main-header__callback-btn
+	| Фильтры и категории
+	svg.drop__uparrow
+		use(xlink:href='#arrow-down')
+#aside__filter-block
+	.dropdown-block
+		.dropdown
+			.dropdown-header
+				span Монтажная пена и очистители пен и герметиков
 				svg.drop__uparrow
 					use(xlink:href='#arrow-down')
-			span Цена
-		.form__interval-block
-			input(type="number" placeholder="от 600 ₽")
-			input(type="number" placeholder="до 600 ₽")
-		.checkbox.jsSlideBlock
+			.dropdown-list
+				a.dropdown-item(href='#') Монтажная пена и очистители пен и герметиков
+				a.dropdown-item(href='#') Монтажная пена и очистители пен и герметиков 2
+				a.dropdown-item(href='#') Монтажная пена и очистители пен и герметиков 3
+		.dropdown
+			.dropdown-header
+				span Отделочные материалы
+				svg.drop__uparrow
+					use(xlink:href='#arrow-down')
+			.dropdown-list
+				a.dropdown-item(href='#') Отделочные материалы
+				a.dropdown-item(href='#') Отделочные материалы 2
+				a.dropdown-item(href='#') Отделочные материалы 3
+		.dropdown
+			.dropdown-header
+				span Крепеж, Анкерные пластины, Дюбеля
+				svg.drop__uparrow
+					use(xlink:href='#arrow-down')
+			.dropdown-list
+				a.dropdown-item(href='#') Крепеж, Анкерные пластины, Дюбеля
+				a.dropdown-item(href='#') Крепеж, Анкерные пластины, Дюбеля 2
+				a.dropdown-item(href='#') Крепеж, Анкерные пластины, Дюбеля 3
+		.dropdown
+			.dropdown-header
+				span Сэндвич и ПВХ панели
+				svg.drop__uparrow
+					use(xlink:href='#arrow-down')
+			.dropdown-list
+				a.dropdown-item(href='#') Сэндвич и ПВХ панели
+				a.dropdown-item(href='#') Сэндвич и ПВХ панели 2
+				a.dropdown-item(href='#') Сэндвич и ПВХ панели 3
+		.dropdown
+			.dropdown-header
+				span Отливы, Козырьки, Металл в рулонах, Штрипс
+				svg.drop__uparrow
+					use(xlink:href='#arrow-down')
+			.dropdown-list
+				a.dropdown-item(href='#') Отливы, Козырьки, Металл в рулонах, Штрипс
+				a.dropdown-item(href='#') Отливы, Козырьки, Металл в рулонах, Штрипс 2
+				a.dropdown-item(href='#') Отливы, Козырьки, Металл в рулонах, Штрипс 3
+
+	form.form__filter
+		.checkbox
+			label
+				input.checkbox-real(type='checkbox' checked='')
+				span.checkbox-custom
+				| В наличии
 			label
 				input.checkbox-real(type='checkbox')
 				span.checkbox-custom
-				| Менее 600 ₽ 
+				| Под заказ: сегодня
+			label
+				input.checkbox-real(type='checkbox')
+				span.checkbox-custom
+				| Под заказ: завтра
+			label
+				input.checkbox-real(type='checkbox')
+				span.checkbox-custom
+				| Под заказ: позже
+			label
+				input.checkbox-real(type='checkbox')
+				span.checkbox-custom
+				| Отсутствующие в продаже
+		.checkbox
+			label
+				input.checkbox-real(type='checkbox')
+				span.checkbox-custom
+				| Рейтинг 4 и выше 
 				span.c-light (51)
+		.checkbox
 			label
 				input.checkbox-real(type='checkbox')
 				span.checkbox-custom
-				| 601 - 1000 ₽ 
-				span.c-light (51)
-			label
-				input.checkbox-real(type='checkbox')
-				span.checkbox-custom
-				| 1001 - 2000 ₽ 
-				span.c-light (51)
-			label
-				input.checkbox-real(type='checkbox')
-				span.checkbox-custom
-				| 2001 - 3000 ₽ 
+				| Есть обзор 
 				span.c-light (51)
 
-.new-goods
-	.new-goods__title
-		| Новые товары
-		button.new-goods__btn(type="button") 
-			svg.drop__uparrow
-				use(xlink:href='#arrow-right')
-	.new-goods__grid
-		.new-goods__card.card
-			button(type="button").card__favorite
-				svg.card__favorite-img
-					use(xlink:href='#heart')
-			a(href="#").card__figure
-				+img('kudo.png', 'card__figure-img', '')
-			.new-goods__block
-				.card__prices
-					.card__prices-current 134 ₽
-				.card__rate
+		.form__interval
+			.form__interval-title
+				button(type="button").form__interval-btn.jsIntShow
+					svg.drop__uparrow
+						use(xlink:href='#arrow-down')
+				span Цена
+			.form__interval-block
+				input(type="number" placeholder="от 600 ₽")
+				input(type="number" placeholder="до 600 ₽")
+			.checkbox.jsSlideBlock
+				label
+					input.checkbox-real(type='checkbox')
+					span.checkbox-custom
+					| Менее 600 ₽ 
+					span.c-light (51)
+				label
+					input.checkbox-real(type='checkbox')
+					span.checkbox-custom
+					| 601 - 1000 ₽ 
+					span.c-light (51)
+				label
+					input.checkbox-real(type='checkbox')
+					span.checkbox-custom
+					| 1001 - 2000 ₽ 
+					span.c-light (51)
+				label
+					input.checkbox-real(type='checkbox')
+					span.checkbox-custom
+					| 2001 - 3000 ₽ 
+					span.c-light (51)
+
+	.new-goods
+		.new-goods__title
+			| Новые товары
+			button.new-goods__btn(type="button") 
+				svg.drop__uparrow
+					use(xlink:href='#arrow-right')
+		.new-goods__grid
+			.new-goods__card.card
+				button(type="button").card__favorite
 					svg.card__favorite-img
-						use(xlink:href='#star-color')
-					| 4.8 
-					a(href="#").card__rate-testi
-						| 569 отзывов
-		.new-goods__card.card
-			button(type="button").card__favorite
-				svg.card__favorite-img
-					use(xlink:href='#heart')
-			a(href="#").card__figure
-				+img('kudo.png', 'card__figure-img', '')
-			.new-goods__block
-				.card__prices
-					.card__prices-current 134 ₽
-				.card__rate
+						use(xlink:href='#heart')
+				a(href="#").card__figure
+					+img('kudo.png', 'card__figure-img', '')
+				.new-goods__block
+					.card__prices
+						.card__prices-current 134 ₽
+					.card__rate
+						svg.card__favorite-img
+							use(xlink:href='#star-color')
+						| 4.8 
+						a(href="#").card__rate-testi
+							| 569 отзывов
+			.new-goods__card.card
+				button(type="button").card__favorite
 					svg.card__favorite-img
-						use(xlink:href='#star-color')
-					| 4.8 
-					a(href="#").card__rate-testi
-						| 569 отзывов
-		.new-goods__card.card
-			button(type="button").card__favorite
-				svg.card__favorite-img
-					use(xlink:href='#heart')
-			a(href="#").card__figure
-				+img('kudo.png', 'card__figure-img', '')
-			.new-goods__block
-				.card__prices
-					.card__prices-current 135 ₽
-				.card__rate
+						use(xlink:href='#heart')
+				a(href="#").card__figure
+					+img('kudo.png', 'card__figure-img', '')
+				.new-goods__block
+					.card__prices
+						.card__prices-current 134 ₽
+					.card__rate
+						svg.card__favorite-img
+							use(xlink:href='#star-color')
+						| 4.8 
+						a(href="#").card__rate-testi
+							| 569 отзывов
+			.new-goods__card.card
+				button(type="button").card__favorite
 					svg.card__favorite-img
-						use(xlink:href='#star-color')
-					| 4.8 
-					a(href="#").card__rate-testi
-						| 569 отзывов
+						use(xlink:href='#heart')
+				a(href="#").card__figure
+					+img('kudo.png', 'card__figure-img', '')
+				.new-goods__block
+					.card__prices
+						.card__prices-current 135 ₽
+					.card__rate
+						svg.card__favorite-img
+							use(xlink:href='#star-color')
+						| 4.8 
+						a(href="#").card__rate-testi
+							| 569 отзывов

@@ -2,6 +2,10 @@
 
 .new-goods {
 
+	@include mixins.mw768 {
+		display: none;
+	}
+
 	&__grid {
 		display: flex;
 		flex-direction: column;

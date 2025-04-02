@@ -54,6 +54,9 @@
     justify-content: space-between;
     align-items: flex-end;
     gap: 20px;
+    @include mixins.mw768 {
+      flex-wrap: wrap;
+    }
   }
 
   &__type,
@@ -96,5 +99,8 @@
     min-width: 100px;
     width: 100%;
     text-align: right;
+		@include mixins.mw768 {
+			text-align: left;
+		}
   }
 }
