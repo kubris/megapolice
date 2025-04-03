@@ -35,6 +35,9 @@
 		@include mixins.mw1200 {
 			margin-right: 0;
 		}
+		@include mixins.mw768 {
+			max-width: 65px;
+		}
 
 		&::after {
 			content: '';
